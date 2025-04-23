@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import ProductItems from '../componets/ProductItems';
 import Title from '../componets/Title';
 import { GoChevronDown } from "react-icons/go";
-import { ShopContext } from '../context/ShopContext';
+import { ShopContext } from '../context/shopContext';
 
 
 
@@ -97,12 +97,12 @@ const Collection = () => {
 
   return (
     <div className=' w-full flex xl:flex-row  md:flex-col xm:flex-col sm:flex-col lg:flex-row  justify-between '>
-      <div className='sm:w-full  md:w-full xl:w-72 lg:w-40 flex flex-col gap-y-5 p-8  '>
+      <div className='sm:w-full  md:w-full xl:w-72 lg:w-52 flex flex-col gap-y-5 xl:p-8 xm:pl-8 '>
         <h1 onClick={showCategoriesHandle} className='font-poppins font-bold text-gray-600 text-2xl xl:mb-8 lg:mb-8 flex items-center gap-1 '>FILTERS
           <span className='xl:hidden lg:hidden '><GoChevronDown className={`${icon ? 'rotate-0' : 'rotate-180'} transition-all duration-300`} />
           </span>
         </h1>
-        <div className={`border w-full  border-gray-300 flex flex-col gap-5 p-5 xl:flex $ lg:flex ${showCategories}  xm:${showCategories} md:${showCategories}`}>
+        <div className={`border w-full  border-gray-300 flex flex-col gap-5 p-5 xl:flex  lg:flex ${showCategories}  xm:${showCategories} md:${showCategories}`}>
           <h1 className='font-poppins text-gray-800 text-xl'>CATEGORIES</h1>
           <div className='flex flex-col gap-2   '>
             <div className='flex gap-2'>
@@ -144,8 +144,8 @@ const Collection = () => {
         <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
           <div className='border bg-gray-100 border-gray-300 max-w-36 h-max '>
             <div>
-              <select onChange={sorted} className='py-3 px-2 font-bold ' name="" id="">
-                <option className='' value="">الترتيب حسب</option>
+              <select dir="rtl" onChange={sorted} className='font-bold text-right py-3 px-2  ' name="" id="">
+                <option className='' value="">  الترتيب حسب :</option>
                 <option className='font-bold' value="low"> الأرخص</option>
                 <option className='font-bold' value="high">الأغلى</option>
               </select>
