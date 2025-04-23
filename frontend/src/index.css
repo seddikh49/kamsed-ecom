@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@theme {
+    --breakpoint-xm: 300px;
+    --breakpoint-sm: 500px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 976px;
+    --breakpoint-xl: 1200px;
+    --font-poppins: "Poppins", "serif";
+    --font-display: "Satoshi", "sans-serif";
+    --font-noto: "Inter", sans-serif;
+    --breakpoint-3xl: 1920px;
+}
+
+a.active hr {
+    display: block;
+    transition: all linear 1s;
+}
+
+@media ((max-width: 768px)) {
+    a.active {
+        background: black;
+        color: azure;
+    }
+}
