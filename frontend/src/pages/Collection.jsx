@@ -8,7 +8,7 @@ import { ShopContext } from '../context/ShopContext';
 
 const Collection = () => {
 
-  const { products, search,wilayas,communes } = useContext(ShopContext)
+  const { products, search, wilayas, communes } = useContext(ShopContext)
   console.log(wilayas)
 
   const [category, setCategory] = useState([])
@@ -60,7 +60,7 @@ const Collection = () => {
   useEffect(() => {
     applyFilter()
     sorterdProducts()
-  }, [category, subCategory, sortedBy, search,products]);
+  }, [category, subCategory, sortedBy, search, products]);
 
 
   const sorted = (e) => {
@@ -97,7 +97,7 @@ const Collection = () => {
 
   return (
     <div className=' w-full flex xl:flex-row  md:flex-col xm:flex-col sm:flex-col lg:flex-row  justify-between '>
-      <div className='sm:w-full md:w-full xl:w-96 lg:w-60 flex flex-col gap-y-5 p-10 '>
+      <div className='sm:w-full  md:w-full xl:w-72 lg:w-40 flex flex-col gap-y-5 p-8  '>
         <h1 onClick={showCategoriesHandle} className='font-poppins font-bold text-gray-600 text-2xl xl:mb-8 lg:mb-8 flex items-center gap-1 '>FILTERS
           <span className='xl:hidden lg:hidden '><GoChevronDown className={`${icon ? 'rotate-0' : 'rotate-180'} transition-all duration-300`} />
           </span>
@@ -142,37 +142,27 @@ const Collection = () => {
 
       <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 '>
         <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
-          <Title text1={'ALL'} text2={'COLLECTIONS'} />
-          <div className='border bg-gray-100 border-gray-300 max-w-60 h-max '>
-            <select onChange={sorted} className='p-3 font-poppins ' name="" id="">
-              <option className='font-poppins' value="">Sorted by: Relavent</option>
-              <option className='font-poppins' value="low">Sorted by: Low-High</option>
-              <option className='font-poppins' value="high">Sorted by: High-Low</option>
-            </select>
+          <div className='border bg-gray-100 border-gray-300 max-w-36 h-max '>
+            <div>
+              <select onChange={sorted} className='py-3 px-2 font-bold ' name="" id="">
+                <option className='' value="">الترتيب حسب</option>
+                <option className='font-bold' value="low"> الأرخص</option>
+                <option className='font-bold' value="high">الأغلى</option>
+              </select>
+              <div />
+              <div />
+            </div>
           </div>
+          <Title text1={'المنتجات'} text2={'جميع'} />
         </div>
-        {/* <select  name="" id="">
-     {wilayas.map((wil)=>{
-      return (
-            <option value="">{wil} </option>
-      )
-     })}
-     </select>
-     <select  name="" id="">
-     {communes.map((com)=>{
-      return (
-            <option value="">{com.commune_name} </option>
-      )
-     })}
-     </select> */}
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-5 xm:grid-cols-1 gap-y-6 gap-4'>
+        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 gap-4'>
           {allProducts.map((item) => {
             return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
           })}
         </div>
       </div>
-    
-     
+
+
     </div>
   )
 }

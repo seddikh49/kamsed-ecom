@@ -8,9 +8,6 @@ const addProduct = async(req, res) => {
             description,
             price,
             category,
-            subCategory,
-            sizes,
-            bestSeller,
             date,
         } = req.body;
 
@@ -37,9 +34,6 @@ const addProduct = async(req, res) => {
             description,
             price: Number(price),
             category,
-            subCategory,
-            sizes: JSON.parse(sizes),
-            bestSeller: "true" ? true : false,
             date: Date.now(),
             image: imageUrl,
         });

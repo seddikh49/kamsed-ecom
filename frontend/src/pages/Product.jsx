@@ -71,16 +71,6 @@ const Product = () => {
           </div>
           <p className='text-3xl font-[600] font-poppins'>${product.price} </p>
           <p className='w-96 font-[500] font-poppin text-gray-800'>{product.description} </p>
-          <h1 className='text-xl'>Select Size</h1>
-          <div className='flex gap-2  '>
-            {product.sizes.map((size, index) => {
-              return <button
-                onClick={() => setChangeBorder(index)}
-                key={index}
-                value={size}
-                className={`bg-gray-200  font-poppins font-[400] text-xl cursor-pointer rounded-md px-4 py-2 ${changeBorder === index ? 'border-2 border-orange-200' : 'border-2 border-orange-200/0 '} `}>{size}</button>
-            })}
-          </div>
           <div>
             <button onClick={setIdAndIndex} className=' px-5 py-3 text-xl bg-black font-poppins font-[400] active:bg-black/80 text-amber-50'>ADD TO CART</button>
             <hr className='mt-10  text-gray-400 w-3/4' />

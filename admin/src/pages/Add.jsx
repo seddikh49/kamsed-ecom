@@ -19,9 +19,7 @@ const Add = ({token}) => {
   const [description, setdescription] = useState();
   const [price, setprice] = useState('');
   const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Topwear");
-  const [bestSeller, setBestSeller] = useState(false);
-  const [sizes, setSizes] = useState([]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -32,9 +30,7 @@ const Add = ({token}) => {
       dataForm.append("description", description)
       dataForm.append("price",price)
       dataForm.append("category", category)
-      dataForm.append("subCategory", subCategory)
-      dataForm.append("bestSeller", bestSeller)
-      dataForm.append("sizes", JSON.stringify(sizes))
+     
 
 
       image1 && dataForm.append("image1", image1)
@@ -55,11 +51,8 @@ const Add = ({token}) => {
           setImage3(false)
           setImage4(false)
           setprice('')
-          console.log(response.data)
         }else{
           toast.error(response.data.msg)
-          
-
         }
       
     } catch (error) {
@@ -118,11 +111,7 @@ const Add = ({token}) => {
           </div>
           <div className=''>
             <p className='mb-2 font-poppins whitespace-nowrap'>Product subcategory</p>
-            <select onChange={(e)=> setSubCategory(e.target.value)}  className='py-2 px-5 font-poppins' name="" id="">
-              <option value="Topwear">Topwear</option>
-              <option value="Bottomwear">Bottomwear</option>
-              <option value="Winterwear">Winterwear</option>
-            </select>
+           
           </div>
           <div className=''>
             <p className='mb-2 font-poppins'>Product price</p>
@@ -132,27 +121,9 @@ const Add = ({token}) => {
         <div >
           <p>Product sizes</p>
           <div className='flex gap-3 mt-3'>
-            <div onClick={()=> setSizes(prev => prev.includes('S') ? prev.filter((item)=> item !== "S") : [...prev, "S"])} className={`${sizes.includes("S") ? "bg-[#FFC0CB]" : " bg-slate-200"} px-4 py-1   cursor-pointer font-poppins text-xl`}>
-              <p  className={``}>S</p>
-            </div>
-            <div onClick={()=> setSizes(prev => prev.includes('M') ? prev.filter((item)=> item !== "M") : [...prev, "M"])}className={`${sizes.includes("M") ? "bg-[#FFC0CB]" : " bg-slate-200"} px-4 py-1   cursor-pointer font-poppins text-xl`} >
-              <p>M</p>
-            </div>
-            <div onClick={()=> setSizes(prev => prev.includes('L') ? prev.filter((item)=> item !== "L") : [...prev, "L"])} className={`${sizes.includes("L") ? "bg-[#FFC0CB]" : " bg-slate-200"} px-4 py-1   cursor-pointer font-poppins text-xl`}>
-              <p>L</p>
-            </div>
-            <div onClick={()=> setSizes(prev => prev.includes('XL') ? prev.filter((item)=> item !== "XL") : [...prev, "XL"])} className={`${sizes.includes("XL") ? "bg-[#FFC0CB]" : " bg-slate-200"} px-4 py-1   cursor-pointer font-poppins text-xl`}>
-              <p>XL</p>
-            </div>
-            <div onClick={()=> setSizes(prev => prev.includes('XXL') ? prev.filter((item)=> item !== "XXL") : [...prev, "XXL"])} className={`${sizes.includes("XXL") ? "bg-[#FFC0CB]" : " bg-slate-200"} px-4 py-1   cursor-pointer font-poppins text-xl`}>
-              <p>XXL</p>
-            </div>
+            
           </div>
           <div className='mt-5 mb-5  gap-3'>
-             <div className='flex gap-3 mb-4'>
-             <input type="checkbox" checked={bestSeller} onChange={(e)=> setBestSeller(prev =>  !prev)} />
-             <p>Add to bestseller</p>
-             </div>
             <button className='bg-black text-white px-10 py-2 cursor-pointer'>ADD</button>
           </div>
         </div>
