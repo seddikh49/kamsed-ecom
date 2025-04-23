@@ -9,22 +9,30 @@ import { ShopContext } from "../context/shopContext";
 
 const Navbar = () => {
 
-const {setToken,navigate,setTakeItem,token} = useContext(ShopContext)
-
-
-
+  
  const location = useLocation();
-  const path = location.pathname.split('/')
+ const path = location.pathname.split('/')
+
+
+useEffect(() => {
+    if (path.includes('collection')) {
+      setShowSearch(true)
+    }else{
+      setShowSearch(false)
+    }
+  }, [location]);
+
+  const { setShowSearch,showSearch ,setSearchBar,countOfCarts} = useContext(ShopContext)
 
  
 
  
 
 
-  const { showSearch } = useContext(ShopContext)
+
   const [visible, setVisible] = useState(false);
   return (
-    <div className="flex h-[70px] justify-between mb-10   ">
+    <div className="flex h-[70px] justify-between items-center mb-10    ">
       <Link to={"/"}>
         <h1 className="text-4xl font-extrabold font-poppins text-gray-600 ">
           KAMSED<span className="text-blue-500 text-6xl aspect-square">.</span>
@@ -70,7 +78,7 @@ const {setToken,navigate,setTakeItem,token} = useContext(ShopContext)
           </NavLink>
         </ul>
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 xl:hidden lg:hidden md:hidden">
         <img
                  onClick={() => setVisible(true)}
                  src={assets.menu_icon}
@@ -130,7 +138,9 @@ const {setToken,navigate,setTakeItem,token} = useContext(ShopContext)
                       <p>تواصل معنا</p>
                     </NavLink>
                   </ul>
+
                 </div>
+                <img onClick={()=> setSearchBar(true)} className={`w-6 cursor-pointer ${showSearch ?'opacity-100 ' : 'opacity-0 pointer-events-none'}`} src={assets.search_icon} alt="" />
                 </div>
  
   );

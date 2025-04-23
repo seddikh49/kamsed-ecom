@@ -119,7 +119,8 @@ const ShopContextProvider = ({ children }) => {
         navigate,
         setTakeItem,
         wilayas,
-        communes
+        communes,
+        showSearch
     }
 
 
