@@ -16,8 +16,8 @@ a.active hr {
     transition: all linear 1s;
 }
 
-@media ((max-width: 768px)) {
-    a.active {
+@media (max-width: 768px) {
+    .nav-btn.active {
         background: black;
         color: azure;
     }

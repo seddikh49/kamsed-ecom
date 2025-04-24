@@ -77,18 +77,23 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
-      
-      <div className={`flex items-center gap-2 xm:pt-5 sm:pt-5 ${showSearch ? 'block' : 'hidden'}`}>
-   
-        <img onClick={() => setSearchBar(true)} className={`w-8 cursor-pointer ${showSearch ? 'block' : 'hidden pointer-events-none'}`} src={assets.search_icon} alt="" />
-    
-        <img
+
+      <div className={`flex  items-center gap-2 xm:pt-5 sm:pt-5 ${showSearch ? 'block' : 'hidden'}`}>    
+      <img onClick={() => setSearchBar(true)} className={`w-8 cursor-pointer ${showSearch ? 'block' : 'hidden pointer-events-none '}`} src={assets.search_icon} alt="" />
+      <img
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
-          className="w-8 xl:hidden lg:hidden md:hidden sm:flex cursor-pointer ml-2"
+          className="w-8 xl:hidden lg:hidden text-gray-200 md:hidden sm:flex cursor-pointer ml-2 "
           alt=""
         />
       </div>
+      <img
+          onClick={() => setVisible(true)}
+          src={assets.menu_icon}
+          className="w-8 text-gray-200 xl:hidden lg:hidden md:hidden sm:flex cursor-pointer ml-2 absolute right-[19px] top-[33px]  "
+          alt=""
+        />
+      
 
       {/* // hidden links///////////////////////////// */}
 
@@ -108,7 +113,7 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             to={"/"}
             className={
-              "flex text-2xl flex-col border px-4 border-gray-300 py-2 relative  font-bold  gap-1 text-gray-600"
+              " nav-btn flex text-2xl flex-col border px-4 border-gray-300 py-2 relative  font-bold  gap-1 text-gray-600"
             }
           >
             <p>الصفحة الرئيسية</p>
@@ -117,7 +122,7 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             to={"/collection"}
             className={
-              "flex relative text-2xl border  px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600 "
+              "nav-btn flex relative text-2xl border  px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600 "
             }
           >
             <p>المنتجات</p>
@@ -126,7 +131,7 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             to={"/about"}
             className={
-              "flex text-2xl relative py-2 px-4 border border-gray-300 flex-col  gap-1 font-bold  text-gray-600"
+              "nav-btn flex text-2xl relative py-2 px-4 border border-gray-300 flex-col  gap-1 font-bold  text-gray-600"
             }
           >
             <p>من نحن</p>
@@ -135,7 +140,7 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             to={"/contact"}
             className={
-              "flex relative text-2xl border px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600"
+              "nav-btn flex relative text-2xl border px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600"
             }
           >
             <p>تواصل معنا</p>
