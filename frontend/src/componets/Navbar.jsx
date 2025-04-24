@@ -12,7 +12,6 @@ const Navbar = () => {
 
   const location = useLocation();
   const path = location.pathname.split('/')
-  console.log(path)
 
   useEffect(() => {
     if (path.includes('collection')) {

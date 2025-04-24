@@ -9,96 +9,51 @@ import { ShopContext } from '../context/shopContext'
 const Product = () => {
   const {
     products,
-    addCart
+    
   } = useContext(ShopContext)
 
-  const [product, setProduct] = useState()
-  const [changeBorder, setChangeBorder] = useState();
+  
+  
 
   const [image, setImage] = useState();
   const { productId } = useParams();
+  const [product, setproduct] = useState(null);
+  
 
-  const productData = async () => {
-    products.map((item) => {
-      if (item._id === productId) {
-        setProduct(item)
-        setImage(item.image[0])
-      }
-    })
+  
+  const getSingleProduct = async() => {
+    const singleProduct = products.find((product) => product._id === productId);
+    setproduct(singleProduct);
+    console.log(product)
+  
   }
-
-  const setIdAndIndex = () => {
-    if (changeBorder !== '') {
-      addCart(product._id,product.sizes[changeBorder])
-    }
-  }
-
-
+  
   useEffect(() => {
-    productData()
-  }, [product, productId,products]);
+      getSingleProduct();
+  }, [products,product]);
+  
 
 
 
 
-
-  return product && (
-    <div>
-      <div className='h-max flex gap-15 xl:flex-row xm:flex-col sm:flex-col'>
-        <div className='xl:w-auto md:w-full sm:h-[50vh] xm:h-[50vh] md:h-[60vh]  xl:h-[70vh]  xl:gap-7 xm:gap-1 sm:gap-2 flex'>
-          <div className=' h-full justify-between flex flex-col   items-center'>
-            {product.image.map((img, index) => {
-              return (
-                <img onClick={() => setImage(img)} key={index} className='h-[24%] object-cover' src={img} alt="" />
+  return  (
+    <div className='w-full max-h-max  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col items-center '>
+      {/* <div className='xl:w-1/2 lg:w-1/2 md:w-full flex flex-col gap-2 justify-center  items-center'>
+           <img src={product.image[0]} alt="" className='w-2/3' />  
+           <div className='grid grid-cols-4 w-2/3 gap-2 '>
+            {product.image.map((img,index)=>{
+              return(
+                <img key={index}  src={img} alt="" />
               )
             })}
-          </div>
-          <div className='h-full '>
-            <img className=' sm:w-full md:w-full h-full  object-cover' src={image} alt="" />
-          </div>
-        </div>
-        <div className='xm:gap-5 flex flex-col sm:gap-5 xl:justify-between  '>
-          <div>
-            <h1 className='xl:text-4xl sm:text-2xl lg:text-3xl md:3xl xm:text-2xl  font-[400] font-poppins'>{product.name} </h1>
-          </div>
-          <div className='flex'>
-            <img className='text-amber-200' src={assets.star_icon} alt="" />
-            <img src={assets.star_icon} alt="" />
-            <img src={assets.star_icon} alt="" />
-            <img src={assets.star_icon} alt="" />
-            <img className='pr-2' src={assets.star_dull_icon} alt="" />
-            <span className='font-[500]'>(122)</span>
-          </div>
-          <p className='text-3xl font-[600] font-poppins'>${product.price} </p>
-          <p className='w-96 font-[500] font-poppin text-gray-800'>{product.description} </p>
-          <div>
-            <button onClick={setIdAndIndex} className=' px-5 py-3 text-xl bg-black font-poppins font-[400] active:bg-black/80 text-amber-50'>ADD TO CART</button>
-            <hr className='mt-10  text-gray-400 w-3/4' />
-            <div className='mt-4 text-gray-700 flex-col flex font-light'>
-              <p>100% Original product.</p>
-              <p>Cash on delivery is a available on this product</p>
-              <p>Easy return and exchnage policy within 7 days </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className='mt-20'>
-        <div className='flex'>
-          <b className='border font-bold border-gray-300 px-10 py-4 text-gray-700'>Description</b>
-          <b className='border font-[500] border-gray-300 px-10 py-4 text-gray-700'>Review(122)</b>
-        </div>
-        <div className='p-10 border border-gray-300 text-gray-500 '>
-          <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque illum hic inventore aliquid dicta
-            id odio doloremque tempora consequuntur ipsum obcaecati, id odio doloremque tempora consequuntur ipsum obcaecati,
-            eveniet possimus nemo voluptates? Numquam itaque officiis vero dignissimos? possimus nemo voluptates? Numquam itaque officiis vero .</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque illum hic inventore aliquid dicta
-            id odio doloremque tempora consequuntur ipsum obcaecati,
-            eveniet possimus nemo voluptates? Numquam itaque officiis vero dignissimos.</p>
-        </div>
-      </div>
-      <div>
-        <RelatedProducts category={product.category} subCategory={product.subCategory} id={product._id} />
-      </div>
+            </div> 
+      </div> */}
+      {product && (
+        <h1> {product.name}</h1>
+      )}
+     
+      <div className='xl:w-1/2 lg:w-1/2 md:w-full border-1 h-max '></div>
+  
     </div>
 
   )

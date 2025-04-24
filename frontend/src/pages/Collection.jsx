@@ -9,7 +9,7 @@ import { ShopContext } from '../context/shopContext';
 const Collection = () => {
 
   const { products, search, wilayas, communes } = useContext(ShopContext)
-  console.log(wilayas)
+
 
   const [category, setCategory] = useState([])
   const [subCategory, setsubCategory] = useState([])
