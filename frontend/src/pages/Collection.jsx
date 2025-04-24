@@ -155,7 +155,7 @@ const Collection = () => {
           </div>
           <Title text1={'المنتجات'} text2={'جميع'} />
         </div>
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 gap-4'>
+        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 gap-4'>
           {allProducts.map((item) => {
             return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
           })}

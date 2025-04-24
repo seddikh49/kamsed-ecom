@@ -13,8 +13,8 @@ const LatestCollection = () => {
     
   
   return (
-    <div className='my-10'>
-      <div className=' text-center py-8 text-3xl'>
+    <div className=''>
+      <div className=' text-center xl:py-10 text-3xl'>
         <Title text1={"المنتجات"} text2={"أحدث"}/>
       </div>
       <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-5 xm:grid-cols-1 gap-y-6 gap-4'>

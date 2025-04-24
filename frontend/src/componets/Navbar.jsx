@@ -1,4 +1,4 @@
-import React, { useContext,useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { assets } from "../‏‏assets/frontend_assets/assets";
 import { useLocation } from 'react-router-dom';
@@ -9,24 +9,24 @@ import { ShopContext } from "../context/shopContext";
 
 const Navbar = () => {
 
-  
- const location = useLocation();
- const path = location.pathname.split('/')
 
+  const location = useLocation();
+  const path = location.pathname.split('/')
+  console.log(path)
 
-useEffect(() => {
+  useEffect(() => {
     if (path.includes('collection')) {
       setShowSearch(true)
-    }else{
+    } else {
       setShowSearch(false)
     }
   }, [location]);
 
-  const { setShowSearch,showSearch ,setSearchBar,countOfCarts} = useContext(ShopContext)
+  const { setShowSearch, showSearch, setSearchBar, countOfCarts } = useContext(ShopContext)
 
- 
 
- 
+
+
 
 
 
@@ -34,16 +34,16 @@ useEffect(() => {
   return (
     <div className="flex h-[70px] justify-between items-center mb-10    ">
       <Link to={"/"}>
-        <h1 className="text-4xl font-extrabold font-poppins text-gray-600 ">
+        <h1 className="xl:text-4xl md:text-3xl xm:text-3xl sm:text-4xl font-extrabold font-poppins text-gray-600 ">
           KAMSED<span className="text-blue-500 text-6xl aspect-square">.</span>
         </h1>
       </Link>
-      <div className="flex justify-between items-center  ">
+      <div className="flex justify-between items-center pt-4 ">
         <ul className="hidden xl:flex lg:flex md:flex justify-between gap-7 items-center">
           <NavLink
             to={"/"}
             className={
-              "flex flex-col relative items-center text-xl  font-bold gap-1 text-gray-600"
+              "flex flex-col relative items-center xl:text-xl lg:text-xl md:text-[16px]  font-bold gap-1 text-gray-600"
             }
           >
             <p className="">الصفحة الرئيسية</p>
@@ -52,7 +52,7 @@ useEffect(() => {
           <NavLink
             to={"/collection"}
             className={
-              "flex relative flex-col items-center gap-1  text-xl  font-bold text-gray-600 "
+              "flex relative flex-col items-center gap-1  xl:text-xl lg:text-xl md:text-[16px]  font-bold text-gray-600 "
             }
           >
             <p>المنتجات</p>
@@ -61,7 +61,7 @@ useEffect(() => {
           <NavLink
             to={"/about"}
             className={
-              "flex relative flex-col items-center gap-1 text-xl  font-bold text-gray-600"
+              "flex relative flex-col items-center gap-1 xl:text-xl lg:text-xl  md:text-[16px]   font-bold text-gray-600"
             }
           >
             <p>من نحن</p>
@@ -70,7 +70,7 @@ useEffect(() => {
           <NavLink
             to={"/contact"}
             className={
-              "flex relative flex-col items-center gap-1 text-xl  font-bold text-gray-600"
+              "flex relative flex-col items-center gap-1 xl:text-xl lg:text-xl text-xl md:text-[16px]   font-bold text-gray-600"
             }
           >
             <p>تواصل معنا</p>
@@ -78,71 +78,74 @@ useEffect(() => {
           </NavLink>
         </ul>
       </div>
-      <div className="flex items-center gap-2 xl:hidden lg:hidden md:hidden">
-        <img
-                 onClick={() => setVisible(true)}
-                 src={assets.menu_icon}
-                 className="w-5 xl:hidden lg:hidden md:hidden sm:flex cursor-pointer ml-2"
-                 alt=""
-               />
-      </div>
-     
-                {/* // hidden links///////////////////////////// */}
       
-                <div
-                  className={`transition-all duration-200 ease-in left-0 z-10  absolute  w-0 overflow-hidden  top-0 right-0 ${visible ? "w-full   " : ""
-                    }   bottom-0  flex justify-start bg-gray-100  `}
-                >
-                  <div
-                    className=" absolute flex items-center gap-2 pl-2 text-2xl text-gray-600"
-                    onClick={() => setVisible(false)}
-                  >
-                    <GoChevronLeft className="pt-1 text-4xl cursor-pointer " />
-                    رجوع
-                  </div>
-                  <ul className=" justify-between gap-5 items-center absolute w-full mt-10">
-                    <NavLink
-                      onClick={() => setVisible(false)}
-                      to={"/"}
-                      className={
-                        "flex text-2xl flex-col border px-4 border-gray-300 py-2 relative  font-bold  gap-1 text-gray-600"
-                      }
-                    >
-                      <p>الصفحة الرئيسية</p>
-                    </NavLink>
-                    <NavLink
-                      onClick={() => setVisible(false)}
-                      to={"/collection"}
-                      className={
-                        "flex relative text-2xl border  px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600 "
-                      }
-                    >
-                      <p>المنتجات</p>
-                    </NavLink>
-                    <NavLink
-                      onClick={() => setVisible(false)}
-                      to={"/about"}
-                      className={
-                        "flex text-2xl relative py-2 px-4 border border-gray-300 flex-col  gap-1 font-bold  text-gray-600"
-                      }
-                    >
-                      <p>من نحن</p>
-                    </NavLink>
-                    <NavLink
-                      onClick={() => setVisible(false)}
-                      to={"/contact"}
-                      className={
-                        "flex relative text-2xl border px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600"
-                      }
-                    >
-                      <p>تواصل معنا</p>
-                    </NavLink>
-                  </ul>
+      <div className="flex items-center gap-2 xm:pt-5 sm:pt-5">
+      <div className="">
+        <img onClick={() => setSearchBar(true)} className={`w-8 cursor-pointer ${showSearch ? 'block' : 'hidden pointer-events-none'}`} src={assets.search_icon} alt="" />
+      </div>
+        <img
+          onClick={() => setVisible(true)}
+          src={assets.menu_icon}
+          className="w-8 xl:hidden lg:hidden md:hidden sm:flex cursor-pointer ml-2"
+          alt=""
+        />
+      </div>
 
-                </div>
-                <img onClick={()=> setSearchBar(true)} className={`w-6 cursor-pointer ${showSearch ?'opacity-100 ' : 'opacity-0 pointer-events-none'}`} src={assets.search_icon} alt="" />
-                </div>
- 
+      {/* // hidden links///////////////////////////// */}
+
+      <div
+        className={`transition-all duration-200 ease-in left-0 z-10  absolute  w-0 overflow-hidden  top-0 right-0 ${visible ? "w-full   " : ""
+          }   bottom-0  flex justify-start bg-gray-100  `}
+      >
+        <div
+          className=" absolute flex items-center gap-2 pl-2 text-2xl text-gray-600"
+          onClick={() => setVisible(false)}
+        >
+          <GoChevronLeft className="pt-1 text-4xl cursor-pointer " />
+          رجوع
+        </div>
+        <ul className=" justify-between gap-5 items-center absolute w-full mt-10">
+          <NavLink
+            onClick={() => setVisible(false)}
+            to={"/"}
+            className={
+              "flex text-2xl flex-col border px-4 border-gray-300 py-2 relative  font-bold  gap-1 text-gray-600"
+            }
+          >
+            <p>الصفحة الرئيسية</p>
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to={"/collection"}
+            className={
+              "flex relative text-2xl border  px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600 "
+            }
+          >
+            <p>المنتجات</p>
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to={"/about"}
+            className={
+              "flex text-2xl relative py-2 px-4 border border-gray-300 flex-col  gap-1 font-bold  text-gray-600"
+            }
+          >
+            <p>من نحن</p>
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to={"/contact"}
+            className={
+              "flex relative text-2xl border px-4 border-gray-300 py-2 flex-col  gap-1 font-bold  text-gray-600"
+            }
+          >
+            <p>تواصل معنا</p>
+          </NavLink>
+        </ul>
+
+      </div>
+    </div>
+
   );
 };
 
