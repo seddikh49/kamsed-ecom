@@ -11,7 +11,7 @@ export const ShopContext = createContext()
 
 
 const ShopContextProvider = ({ children }) => {
-    const currency = "$"
+    const currency = "دج"
     const delivery_fee = 10
     const backend_url  = import.meta.env.VITE_BACKEND_URL
     const [search, setSearch] = useState("")

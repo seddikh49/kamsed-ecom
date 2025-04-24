@@ -78,10 +78,10 @@ const Navbar = () => {
         </ul>
       </div>
       
-      <div className="flex items-center gap-2 xm:pt-5 sm:pt-5">
-      <div className="">
+      <div className={`flex items-center gap-2 xm:pt-5 sm:pt-5 ${showSearch ? 'block' : 'hidden'}`}>
+   
         <img onClick={() => setSearchBar(true)} className={`w-8 cursor-pointer ${showSearch ? 'block' : 'hidden pointer-events-none'}`} src={assets.search_icon} alt="" />
-      </div>
+    
         <img
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
