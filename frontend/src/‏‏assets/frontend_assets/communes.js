@@ -115,245 +115,245 @@ export const communes = [{
         "commune_name": "تلعصة",
         "daira_name": "أبو الحسن",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 63,
         "commune_name": "الزبوجة",
         "daira_name": "الزبوجة",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 41,
         "commune_name": "الحجاج",
         "daira_name": "أولاد بن عبد القادر",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 52,
         "commune_name": "أولاد بن عبد القادر",
         "daira_name": "أولاد بن عبد القادر",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 30,
         "commune_name": "عين مران",
         "daira_name": "عين مران",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 37,
         "commune_name": "بريرة",
         "daira_name": "بني حواء",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 51,
         "commune_name": "أولاد عباس",
         "daira_name": "وادي الفضة",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 48,
         "commune_name": "وادي الفضة",
         "daira_name": "وادي الفضة",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 34,
         "commune_name": "بني راشد",
         "daira_name": "وادي الفضة",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 45,
         "commune_name": "الهرانفة",
         "daira_name": "عين مران",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 59,
         "commune_name": "تاجنة",
         "daira_name": "أبو الحسن",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 43,
         "commune_name": "المرسى",
         "daira_name": "المرسى",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 39,
         "commune_name": "الشلف",
         "daira_name": "الشلف",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 54,
         "commune_name": "أم الدروع",
         "daira_name": "الشلف",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 55,
         "commune_name": "سنجاس",
         "daira_name": "الشلف",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 56,
         "commune_name": "سيدي عبد الرحمن",
         "daira_name": "تنس",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 57,
         "commune_name": "سيدي عكاشة",
         "daira_name": "تنس",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 62,
         "commune_name": "تنس",
         "daira_name": "تنس",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 32,
         "commune_name": "بني بوعتاب",
         "daira_name": "الكريمية",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 42,
         "commune_name": "الكريمية",
         "daira_name": "الكريمية",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 44,
         "commune_name": "حرشون",
         "daira_name": "الكريمية",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 36,
         "commune_name": "بوزغاية",
         "daira_name": "الزبوجة",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 61,
         "commune_name": "تاوقريت",
         "daira_name": "تاوقريت",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 33,
         "commune_name": "بني حواء",
         "daira_name": "بني حواء",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 29,
         "commune_name": "أبو الحسن",
         "daira_name": "أبو الحسن",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 49,
         "commune_name": "وادي قوسين",
         "daira_name": "بني حواء",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 38,
         "commune_name": "الشطية",
         "daira_name": "أولاد فارس",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 47,
         "commune_name": "مصدق",
         "daira_name": "المرسى",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 53,
         "commune_name": "أولاد فارس",
         "daira_name": "أولاد فارس",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 35,
         "commune_name": "بوقادير",
         "daira_name": "بوقادير",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 50,
         "commune_name": "وادي سلي",
         "daira_name": "بوقادير",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 58,
         "commune_name": "الصبحة",
         "daira_name": "بوقادير",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 31,
         "commune_name": "بنايرية",
         "daira_name": "الزبوجة",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 46,
         "commune_name": "الأبيض مجاجة",
         "daira_name": "أولاد فارس",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 40,
         "commune_name": "الظهرة",
         "daira_name": "تاوقريت",
         "wilaya_code": "02",
-        "wilaya_name": " الشلف"
+        "wilaya_name": "الشلف"
     },
     {
         "id": 67,
@@ -1158,364 +1158,364 @@ export const communes = [{
         "commune_name": "سيدي عياد",
         "daira_name": "سيدي عيش",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 186,
         "commune_name": "برباشة",
         "daira_name": "برباشة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 199,
         "commune_name": "الفلاي",
         "daira_name": "سيدي عيش",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 206,
         "commune_name": "كنديرة",
         "daira_name": "برباشة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 213,
         "commune_name": "سيدي عيش",
         "daira_name": "سيدي عيش",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 225,
         "commune_name": "تيفرة",
         "daira_name": "سيدي عيش",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 227,
         "commune_name": "تينبدار",
         "daira_name": "سيدي عيش",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 200,
         "commune_name": "القصر",
         "daira_name": "القصر",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 201,
         "commune_name": "فناية الماثن",
         "daira_name": "القصر",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 229,
         "commune_name": "توجة",
         "daira_name": "القصر",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 198,
         "commune_name": "ذراع القايد",
         "daira_name": "خراطة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 207,
         "commune_name": "خراطة",
         "daira_name": "خراطة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 187,
         "commune_name": "بجاية",
         "daira_name": "بجاية",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 210,
         "commune_name": "وادي غير",
         "daira_name": "بجاية",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 191,
         "commune_name": "بني معوش",
         "daira_name": "بني معوش",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 188,
         "commune_name": "بني جليل",
         "daira_name": "أميزور",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 202,
         "commune_name": "فرعون",
         "daira_name": "أميزور",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 214,
         "commune_name": "سمعون",
         "daira_name": "أميزور",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 226,
         "commune_name": "تيمزريت",
         "daira_name": "تيمزريت",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 209,
         "commune_name": "مالبو",
         "daira_name": "سوق الإثنين",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 215,
         "commune_name": "سوق لإثنين",
         "daira_name": "سوق الإثنين",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 219,
         "commune_name": "تامريجت",
         "daira_name": "سوق الإثنين",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 194,
         "commune_name": "بوخليفة",
         "daira_name": "تيشي",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 217,
         "commune_name": "تالة حمزة",
         "daira_name": "تيشي",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 224,
         "commune_name": "تيشي",
         "daira_name": "تيشي",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 179,
         "commune_name": "أيت رزين",
         "daira_name": "إغيل علي",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 204,
         "commune_name": "إغيل علي",
         "daira_name": "إغيل علي",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 180,
         "commune_name": "أيت إسماعيل",
         "daira_name": "درقينة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 197,
         "commune_name": "درقينة",
         "daira_name": "درقينة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 221,
         "commune_name": "تاسكريوت",
         "daira_name": "درقينة",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 185,
         "commune_name": "أوقاس",
         "daira_name": "أوقاس",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 228,
         "commune_name": "تيزي نبربر",
         "daira_name": "أوقاس",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 178,
         "commune_name": "أدكار",
         "daira_name": "أدكار",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 189,
         "commune_name": "بني كسيلة",
         "daira_name": "أدكار",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 220,
         "commune_name": "تاوريرت إغيل",
         "daira_name": "أدكار",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 181,
         "commune_name": "أقبو",
         "daira_name": "أقبو",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 195,
         "commune_name": "شلاطة",
         "daira_name": "أقبو",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 205,
         "commune_name": "اغرم",
         "daira_name": "أقبو",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 218,
         "commune_name": "تامقرة",
         "daira_name": "أقبو",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 183,
         "commune_name": "أمالو",
         "daira_name": "صدوق",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 193,
         "commune_name": "بوحمزة",
         "daira_name": "صدوق",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 208,
         "commune_name": "مسيسنة",
         "daira_name": "صدوق",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 211,
         "commune_name": "صدوق",
         "daira_name": "صدوق",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 190,
         "commune_name": "بني مليكش",
         "daira_name": "تازملت",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 192,
         "commune_name": "بو جليل",
         "daira_name": "تازملت",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 222,
         "commune_name": "تازمالت",
         "daira_name": "تازملت",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 182,
         "commune_name": "أكفادو",
         "daira_name": "شميني",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 196,
         "commune_name": "شميني",
         "daira_name": "شميني",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 216,
         "commune_name": "سوق اوفلا",
         "daira_name": "شميني",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 223,
         "commune_name": "طيبان",
         "daira_name": "شميني",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 203,
         "commune_name": "أوزلاقن",
         "daira_name": "إفري أوزلاقن",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 184,
         "commune_name": "أميزور",
         "daira_name": "أميزور",
         "wilaya_code": "06",
-        "wilaya_name": " بجاية"
+        "wilaya_name": "بجاية"
     },
     {
         "id": 241,
@@ -2290,6 +2290,41 @@ export const communes = [{
     {
         "id": 354,
         "commune_name": "ابلسة",
+        "daira_name": "سيلت",
+        "wilaya_code": "11",
+        "wilaya_name": "تمنراست"
+    },
+    {
+        "id": 1580,
+        "commune_name": "تين زواتين",
+        "daira_name": "سيلت",
+        "wilaya_code": "11",
+        "wilaya_name": "تمنراست"
+    },
+    {
+        "id": 1581,
+        "commune_name": "عين قزام",
+        "daira_name": "سيلت",
+        "wilaya_code": "11",
+        "wilaya_name": "تمنراست"
+    },
+    {
+        "id": 1582,
+        "commune_name": "إينغر",
+        "daira_name": "سيلت",
+        "wilaya_code": "11",
+        "wilaya_name": "تمنراست"
+    },
+    {
+        "id": 1583,
+        "commune_name": "فقارة الزوى",
+        "daira_name": "سيلت",
+        "wilaya_code": "11",
+        "wilaya_name": "تمنراست"
+    },
+    {
+        "id": 1584,
+        "commune_name": "عين صالح",
         "daira_name": "سيلت",
         "wilaya_code": "11",
         "wilaya_name": "تمنراست"

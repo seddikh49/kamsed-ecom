@@ -13,6 +13,7 @@ import Navbar from './componets/Navbar'
 import Footer from './componets/Footer'
 import SearchBar from './componets/SearchBar'
 import { ToastContainer, toast } from 'react-toastify';
+import Confirm from './pages/Confirm'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
       <Route path='/login' element={<Login/>} /> 
       <Route path='/product/:productId' element={<Product/>} /> 
       <Route path='/orders' element={<Orders/>} /> 
+      <Route path='/confirm' element={<Confirm/>} /> 
       </Routes>
       <Footer/>
           </div>

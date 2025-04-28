@@ -22,7 +22,7 @@ const ShopContextProvider = ({ children }) => {
     // const [products, setProducts] = useState([]);
     const [token, setToken] = useState('');
     const navigate = useNavigate()
-
+    const [nameConfirmation, setnameConfirmation] = useState();
 
 
     const addCart = (itemId, size) => {
@@ -122,7 +122,9 @@ const ShopContextProvider = ({ children }) => {
         setTakeItem,
         wilayas,
         communes,
-        showSearch
+        nameConfirmation,
+        setnameConfirmation
+        
     }
 
 

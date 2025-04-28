@@ -9,11 +9,19 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    state: {
+    wilaya: {
         type: String,
         required: true
     },
     commune: {
+        type: String,
+        required: true
+    },
+    quantity: {
+        type: String,
+        required: true
+    },
+    productName: {
         type: String,
         required: true
     },
