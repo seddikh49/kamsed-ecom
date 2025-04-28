@@ -31,7 +31,7 @@ const Navbar = () => {
 
   const [visible, setVisible] = useState(false);
   return (
-    <div className="flex h-[70px] justify-between items-center mb-10    ">
+    <div className="flex h-[70px] justify-between items-center mb-10 border-b-2 border-black/10   ">
       <Link to={"/"}>
         <h1 className="xl:text-4xl md:text-3xl xm:text-3xl sm:text-4xl font-extrabold font-poppins text-gray-600 ">
           KAMSED<span className="text-blue-500 text-6xl aspect-square">.</span>

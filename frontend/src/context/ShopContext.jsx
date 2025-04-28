@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { wilayas } from "../‏‏assets/frontend_assets/wilayas";
 import { communes } from "../‏‏assets/frontend_assets/communes";
+import products from "../‏‏assets/frontend_assets/assets";
 
 
 export const ShopContext = createContext()
@@ -18,7 +19,7 @@ const ShopContextProvider = ({ children }) => {
     const [showSearch, setShowSearch] = useState(false)
     const [searchBar, setSearchBar] = useState(false);
     const [takeItem, setTakeItem] = useState({});
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
     const [token, setToken] = useState('');
     const navigate = useNavigate()
 
@@ -78,16 +79,17 @@ const ShopContextProvider = ({ children }) => {
     }
 
     const getProducts = async () => {
-        try {
-            const response = await axios.get(`${backend_url}api/product/list`)        
-            if(response.data.msg){
-                setProducts(response.data.products)
-            }else{
-                toast.error('there no data here')
-            }
-        } catch (error) {
-            console.log(error)
-        }
+        // try {
+        //     const response = await axios.get(`${backend_url}api/product/list`)        
+        //     if(response.data.msg){
+        //         setProducts(response.data.products)
+        //     }else{
+        //         toast.error('there no data here')
+        //     }
+        // } catch (error) {
+        //     console.log(error)
+        // }
+    
     }
 
     useEffect(() => {

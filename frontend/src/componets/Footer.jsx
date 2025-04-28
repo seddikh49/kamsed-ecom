@@ -8,7 +8,7 @@ const Footer = () => {
       <div className='xl:flex  xl:justify-around sm:justify-center items-start mt-20 mb-10 '>
         <div className='xl:max-w-1/2 sm:w-full mb-10 flex flex-col sm:flex-col  items-start  gap-5 justify-start '>
         <h1 className="text-4xl   font-extrabold font-poppins text-gray-600 ">
-          SEDEVER<span className="text-orange-400 aspect-square">.</span>
+        KAMSED<span className="text-orange-400 aspect-square">.</span>
         </h1>
       <p className='text-lg font-abold text-gray-600 font-poppins'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, consequatur
          dignissimos consectetur commodi deleniti at beatae minus,

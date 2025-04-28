@@ -4,8 +4,8 @@ const addToCart = async(req, res) => {
     try {
         const { userId, itemId, size } = req.body
 
-        const userDate = userModel.findById(userId)
-        let cartData = userDate.cartData
+        const userData = userModel.findById(userId)
+        let cartData = userData.cartData
         if (cartData[itemId]) {
             if (cartData[itemId][size]) {
                 cartData[itemId][size] += 1
