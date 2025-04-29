@@ -145,20 +145,27 @@ const Product = () => {
             <h1 className=' py-3 font-bold text-end text-xl ' >:كمية المنتج </h1>
           </div>
 
-          {/* <div className='xl:w-full lg:w-full md:w-full flex gap-5 sm:w-full xl: bg-amber-800   '>
+          <div className='xl:w-full lg:w-full md:w-full flex gap-5 sm:w-full xl: bg-amber-800   '>
             <NavLink className={"no-active-style w-full bg-green-500 py-3 text-white text-center font-bold text-xl rounded-sm flex items-center justify-center whitespace-nowrap"}><FaWhatsapp className=' text-3xl pr-2' /> اضغط هنا للطلب عبر الواتساب </NavLink>
-          </div> */}
+          </div>
           <div className='xl:w-full lg:w-full md:w-full flex gap-5 sm:w-full'>
             <button className={"no-active-style cursor-pointer w-full bg-blue-500 py-3 text-white text-center font-bold text-xl rounded-sm"}>اضغط هنا لتأكيد الطلب</button>
           </div>
-
+          <div className='bg-blue-300/50 border-1'>
+            <h1 className='text-end  font-bold text-2xl'>: طلبك </h1>
+            <div>
+              <p>{product.name}</p>
+              <h1>{quantity} </h1>
+              
+            </div>
+          </div>
 
 
         </form>
       </div>
 
 
-      <div className='xl:w-1/2 lg:w-1/2 md:w-full flex flex-col gap-2 justify-center   items-start'>
+      <div className='xl:w-1/2 lg:w-1/2 md:w-full flex flex-col gap-2 justify-center md:items-center   xl:items-start'>
         <img src={product.image[imageIndex]} alt="" className='xl:w-3/5 lg:w-3/5 md:w-4/5' />
         <div className='grid grid-cols-4 xl:w-3/5 lg:w-3/5 md:w-4/5 gap-2 '>
           {product.image.map((img, index) => {
