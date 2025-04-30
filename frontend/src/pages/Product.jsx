@@ -3,11 +3,24 @@ import { useParams } from 'react-router-dom'
 import { assets } from '../‏‏assets/frontend_assets/assets'
 import RelatedProducts from '../componets/RelatedProducts'
 import { ShopContext } from '../context/shopContext'
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import { wilayas } from '../‏‏assets/frontend_assets/wilayas'
 import { communes } from '../‏‏assets/frontend_assets/communes'
 import axios from 'axios';
+import { MdAccountCircle } from "react-icons/md";
+import { FaPhone } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
+import { toast } from 'react-toastify'
+import { ClipLoader } from "react-spinners";
+import Lottie from "lottie-react";
+
+
+
+
+
+
+
 
 
 
@@ -18,146 +31,217 @@ const Product = () => {
     currency,
     backend_url,
     navigate,
-    setnameConfirmation
+    setnameConfirmation,
+    setfullName,
+    fullName,
+    setPhone,
+    phone,
+    setWilaya,
+    wilaya,
+    setCommune,
+    commune,
+    quantity,
+    setQuantity,
+    deliveryPrice,
+    setdeliveryPrice,
+    totalPrice,
+    settotalPrice,
+    productName,
+    setProductName
 
   } = useContext(ShopContext)
 
 
   const [imageIndex, setimageIndex] = useState(0);
   const { productId } = useParams();
-  const [product, setproduct] = useState(null);
+  const [product, setproduct] = useState();
   const [communess, setCommuness] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [animationData, setAnimationData] = useState(null);
 
-
-  const [fullName, setfullName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [wilaya, setWilaya] = useState('');
-  const [commune, setCommune] = useState('');
-  const [quantity, setQuantity] = useState(0);
-  const [productName, setProductName] = useState();
 
 
   const getSingleProduct = async () => {
     const singleProduct = products.find((product) => product._id === productId);
     setproduct(singleProduct);
   }
+  const filterCommunes = async () => {
+    let coms = await communes.filter((com) => com.wilaya_name === wilaya)
+    setCommuness(coms)
+    const filterPrice = await wilayas.filter((wil) => {
+      return wil.wil === wilaya
+    })
+    if (filterPrice.length) {
+      setdeliveryPrice(filterPrice[0].deliveryPrice)
+    }
+  }
 
-  const filterCommunes = async () =>  {
-  
-      let coms =   communes.filter((com)=> com.wilaya_name === wilaya)  
-      setCommuness(coms)
+  const getTotlaPrice = async () => {
+    if (product) {
+      const add = await (product.price * quantity) + deliveryPrice
+      settotalPrice(add)
+
+    }
   }
 
 
   useEffect(() => {
     getSingleProduct();
-  }, [products, product ]);
+  }, [products, product]);
 
   useEffect(() => {
     filterCommunes()
-  }, [wilaya]);
+    getTotlaPrice()
+  }, [wilaya, quantity, deliveryPrice, totalPrice]);
 
 
   const incrementQuantity = () => {
     setQuantity(prev => prev + 1)
+
   }
 
   const decrementQuantity = () => {
-    if(quantity > 0) {
+    if (quantity > 1) {
       setQuantity(prev => prev - 1)
+
     }
   }
 
   const handleSubmit = async (e) => {
-   e.preventDefault()
-   setnameConfirmation(fullName)
-    try {
-      const response = await axios.post(`${backend_url}/api/order/add`,{
-        fullName,
-        phone,
-        wilaya,
-        commune,
-        quantity,
-        productName :product.name  
-    });
-    if(response.data.success){
-       setfullName('')  
-       setCommune('')
-       setPhone('')
-       setWilaya('')
-       setQuantity(0)
-       navigate('/confirm')   
-    }
-    else{
-       console.log(response.data.msg)  
-    }
-    } catch (error) {
-         console.log(error)
-    }
+    e.preventDefault()
+    setLoading(true)
+    setProductName(product.name)
+    setnameConfirmation(fullName)
+    
+      try {
+        const response = await axios.post(`${backend_url}/api/order/add`, {
+          fullName,
+          phone,
+          wilaya,
+          commune,
+          quantity,
+          productName: product.name
+        });
+        if (response.data.success) {
+          setLoading(false)
+          navigate('/confirm')
+        }
+        else {
+          setLoading(false)
+          const errorMessage = response.data.msg.message.split(":")
+          toast.error(errorMessage[errorMessage.length-1])
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    
   }
 
 
+  useEffect(() => {
+    fetch("https://assets10.lottiefiles.com/packages/lf20_usmfx6bp.json")
+      .then((res) => res.json())
+      .then(setAnimationData);
+  }, []);
 
 
 
   return product && (
     <div className='w-full max-h-max gap-10  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col '>
-      <div className='xl:w-1/2  lg:w-1/2 md:w-full  h-max  flex flex-col gap-10 md:items-center  lg:items-end xl:items-end sm:items-center pr-10  '>
-        <div className='flex flex-col items-end gap-2' >
+      <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max  flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center pr-10  '>
+        <div className='flex flex-col items-end gap-2 pb-3' >
           <p className='text-2xl font-bold'>{product.name}</p>
           <div className='flex text-2xl font-bold'>
             <h1>{currency} </h1>
             <h1>{product.price}  </h1>
           </div>
-          <p>description</p>
+          <p className='text-end'> Lorem . Consequveniam maxime, reprehenderit numquam neque nostrum dicta assumenda velit, perspiciatis magnam autem quaerat porro sint?</p>
         </div>
-        <form onSubmit={handleSubmit}  className='flex flex-col xl:w-3/4 md:w-2/3   lg:w-6/7 ml-10 sm:w-full  gap-5 xl:items-end sm:items-center' action="">
+        <form onSubmit={handleSubmit} className='flex flex-col xl:w-3/4 md:w-2/3  p-7 shadow-[0px_0px_5px_0px_rgba(0,_0,_0,_0.8)] lg:w-6/7 ml-10 sm:w-full  gap-5 xl:items-end sm:items-center' action="">
           <div className='xl:w-full md:w-full lg:w-full  sm:w-full flex gap-5 xl:flex-row md:flex-row lg:flex-row  sm:flex-col xm:flex-col '>
-            <input onChange={(e)=> setPhone(e.target.value)} value={phone} className='w-1/2 bg-gray-100 py-3 font-bold px-2 border-1 sm:w-full xm:w-full border-blue-500 rounded-[5px]' type="text" id="age" min="1" max="100" placeholder=" رقم الهاتف" />
-            <input onChange={(e)=> setfullName(e.target.value)} value={fullName} className='w-1/2 bg-gray-100 py-3 font-bold px-2 border-1 sm:w-full xm:w-full border-blue-500 rounded-[5px]' placeholder='الاسم الكامل' type="text" />
+            <div className='xl:w-1/2 relative sm:w-full xm:w-full'>
+              <input onChange={(e) => setPhone(e.target.value)} value={phone} className='w-full bg-gray-100 py-3 font-bold px-9 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' type="text" id="age" min="1" max="100" placeholder=" رقم الهاتف" />
+              <FaPhone className='absolute top-[13px] left-[7px] text-2xl text-gray-600 ' />
+            </div>
+
+            <div className='xl:w-1/2 relative sm:w-full xm:w-full'>
+              <input onChange={(e) => setfullName(e.target.value)} value={fullName} className='w-1/2 bg-gray-100 py-3 font-bold px-10 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' placeholder='الاسم الكامل' type="text" />
+              <MdAccountCircle className='absolute top-[13px] left-1 text-2xl text-gray-600' />
+            </div>
           </div>
           <div className='xl:w-full sm:flex-col-reverse xm:flex-col-reverse md:w-full sm:w-full lg:w-full flex gap-5  xl:flex-row md:flex-row lg:flex-row  '>
-          <select onChange={(e)=> setCommune(e.target.value)} value={commune} className='w-1/2 bg-gray-100 py-3 font-bold px-2 border-1 sm:w-full xm:w-full border-blue-500 rounded-[5px]' name="" id="">sdf
+            <select onChange={(e) => setCommune(e.target.value)} value={commune} className='w-1/2 bg-gray-100 text-gray-600 py-3 font-sans font-bold px-2 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' name="" id="">
               <option value="">البلدية</option>
-              { communess.map((wil,index) => {
+              {communess.map((wil, index) => {
                 return (
-                    <option key={index} value={wil.num}>{wil.commune_name}</option>
+                  <option className='text-black' key={index} value={wil.num}>{wil.commune_name}</option>
                 )
               })}
 
             </select>
-            <select onChange={(e)=> setWilaya(e.target.value)} value={wilaya} className='w-1/2 bg-gray-100 py-3 font-bold px-2 border-1 sm:w-full xm:w-full border-blue-500 rounded-[5px]' name="" id="">sdf
-              <option value="">الولاية</option>
-              {wilayas.map((wil,index) => {
+            <select onChange={(e) => setWilaya(e.target.value)} value={wilaya} className='w-1/2 text-gray-600 bg-gray-100 py-3 font-bold px-2 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' name="" id="">
+              <option className='' value="">الولاية</option>
+              {wilayas.map((wil, index) => {
                 return (
-                    <option key={index} value={wil.wil}>{wil.num}- {wil.wil}</option>
+                  <option className='text-black font-bold  flex flex-col' key={index} value={wil.wil}>{wil.wil}- {wil.num}  </option>
                 )
               })}
 
             </select>
           </div>
-          <div className=' flex gap-5 justify-end items-center  sm:flex-col-reverse  xm:flex-col-reverse  '>
-            <div className='flex border-1   '>
-              <div onClick={incrementQuantity} className='w-13 h-13 cursor-pointer bg-black text-white flex justify-center  items-center text-xl font-bold'>+</div>
-              <div className='w-13 h-13 flex justify-center  items-center text-xl font-bold'>{quantity}</div>
-              <div onClick={decrementQuantity} className='w-13 h-13 cursor-pointer bg-black text-white flex justify-center  items-center text-xl font-bold'>- </div>
+          <div className='flex gap-5 justify-end items-center xl:flex-row lg:flex-row   sm:flex-col-reverse  xm:flex-col-reverse  '>
+            <div className='flex border-1  rounded-sm   '>
+              <div onClick={incrementQuantity} className='w-10 h-10 cursor-pointer  bg-black text-white flex justify-center  items-center text-xl font-bold'>+</div>
+              <div className='w-10 h-10 flex justify-center  items-center text-xl font-bold'>{quantity}</div>
+              <div onClick={decrementQuantity} className='w-10 h-10 cursor-pointer bg-black text-white flex justify-center  items-center text-xl font-bold'>- </div>
             </div>
             <h1 className=' py-3 font-bold text-end text-xl ' >:كمية المنتج </h1>
           </div>
+          <div className='bg-gray-100/50 rounded-t-md border-1  border-black/30 w-full'>
+            <div className='flex justify-between items-center rounded-t-md p-3 bg-amber-300'>
+              <FaCartShopping className='text-2xl' />
+              <h1 className='text-end  font-bold text-xl pb-2'>: تفاصيل الطلب </h1>
+            </div>
+            <div className='flex flex-col gap-2'>
+              <div className='flex  justify-between p-3'>
+                <p className=' text-end  whitespace-nowrap  font-poppins text-lg'>{product.name}</p>
+                <h1 className='text-end font-bold text-lg'> : المنتج</h1>
+              </div>
+              <div>
+              <div className='flex gap-2 justify-between p-3 '>
+                  <div className='flex gap-2 font-bold'>
+                    <h1>ق</h1>
+                    <h1 className='font-poppins'>{quantity} </h1>
+                  </div>
+                  <h1 className=' text-end  font-bold text-lg  '> : الكمية  </h1>
+                </div>
+              </div>
+          
+              <div className='flex justify-between gap-2 font-bold text-lg p-3'>
+                <div className='flex gap-2'>
+                  <h1>{currency}</h1>
+                  <h1 className='font-poppins'>{deliveryPrice}</h1>
+                </div>
+                <h1> : سعر التوصيل </h1>
+              </div>
+              <div className='flex justify-between gap-2 font-bold text-lg border-t-1 border-black/30 p-3'>
+                <div className='flex gap-2 '>
+                  <h1>{currency}</h1>
+                  <h1 className='font-poppins'> {totalPrice} </h1>
+                </div>
+                <h1 className='text-xl '> : السعر الاجمالي </h1>
+              </div>
+            </div>
+
+          </div>
+
 
           <div className='xl:w-full lg:w-full md:w-full flex gap-5 sm:w-full xl: bg-amber-800   '>
-            <NavLink className={"no-active-style w-full bg-green-500 py-3 text-white text-center font-bold text-xl rounded-sm flex items-center justify-center whitespace-nowrap"}><FaWhatsapp className=' text-3xl pr-2' /> اضغط هنا للطلب عبر الواتساب </NavLink>
+
+            <NavLink className={"no-active-style w-full  bg-green-500 py-2 text-white text-center xl:text-xl md:text-xl lg:text-xl xm:text-md rounded-sm flex items-center justify-center whitespace-nowrap"}><FaWhatsapp className=' text-3xl pr-2' /> اضغط هنا للطلب عبر الواتساب </NavLink>
           </div>
           <div className='xl:w-full lg:w-full md:w-full flex gap-5 sm:w-full'>
-            <button className={"no-active-style cursor-pointer w-full bg-blue-500 py-3 text-white text-center font-bold text-xl rounded-sm"}>اضغط هنا لتأكيد الطلب</button>
-          </div>
-          <div className='bg-blue-300/50 border-1'>
-            <h1 className='text-end  font-bold text-2xl'>: طلبك </h1>
-            <div>
-              <p>{product.name}</p>
-              <h1>{quantity} </h1>
-              
-            </div>
+            <button className={"no-active-style w-full  bg-blue-500 py-2 font-cairo text-white text-center xl:text-xl md:text-xl lg:text-xl xm:text-md rounded-sm flex items-center justify-center whitespace-nowrap"}>{loading ? <ClipLoader color="#36d7b7" size={30} /> :" اضغط هنا لتأكيد الطلب"} </button>
           </div>
 
 
@@ -165,9 +249,9 @@ const Product = () => {
       </div>
 
 
-      <div className='xl:w-1/2 lg:w-1/2 md:w-full flex flex-col gap-2 justify-center md:items-center   xl:items-start'>
-        <img src={product.image[imageIndex]} alt="" className='xl:w-3/5 lg:w-3/5 md:w-4/5' />
-        <div className='grid grid-cols-4 xl:w-3/5 lg:w-3/5 md:w-4/5 gap-2 '>
+      <div className='xl:w-1/2 lg:w-1/2 md:w-full flex flex-col gap-2 justify-center md:items-center xl:items-start '>
+        <img src={product.image[imageIndex]} alt="" className='xl:w-6/9 lg:w-3/5 md:w-4/5' />
+        <div className='grid grid-cols-4 xl:w-6/9  lg:w-3/5 md:w-4/5 gap-2 '>
           {product.image.map((img, index) => {
             return (
               <img key={index} onClick={() => setimageIndex(index)} className='cursor-pointer' src={img} alt="" />
@@ -181,91 +265,3 @@ const Product = () => {
 }
 
 export default Product
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-
-// const App = () => {
-//   // حالة البيانات المدخلة في النموذج
-//   const [fullName, setFullName] = useState('');
-//   const [phone, setPhone] = useState('');
-//   const [wilaya, setWilaya] = useState('');
-//   const [commune, setCommune] = useState('');
-
-//   // حالة لعرض الرسائل
-//   const [message, setMessage] = useState('');
-
-//   // الدالة لإرسال البيانات
-//   const handleSubmit = async (event) => {
-//     event.preventDefault(); // منع الإرسال الافتراضي للنموذج
-
-//     const data = {
-//       fullName,
-//       phone,
-//       wilaya,
-//       commune
-//     };
-
-//     try {
-//       const response = await axios.post('http://localhost:3000/api/order/add', data);
-//       setMessage('تم إرسال البيانات بنجاح');
-//       console.log(response.data); // هنا يمكنك التعامل مع الاستجابة من السيرفر
-//     } catch (error) {
-//       setMessage('حدث خطأ أثناء إرسال البيانات');
-//       console.error('حدث خطأ:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>إرسال بيانات الطلب</h1>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label htmlFor="fullName">الاسم الكامل:</label>
-//           <input
-//             type="text"
-//             id="fullName"
-//             value={fullName}
-//             onChange={(e) => setFullName(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="phone">رقم الهاتف:</label>
-//           <input
-//             type="text"
-//             id="phone"
-//             value={phone}
-//             onChange={(e) => setPhone(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="wilaya">الولاية:</label>
-//           <input
-//             type="text"
-//             id="wilaya"
-//             value={wilaya}
-//             onChange={(e) => setWilaya(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="commune">البلدية:</label>
-//           <input
-//             type="text"
-//             id="commune"
-//             value={commune}
-//             onChange={(e) => setCommune(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <button className='bg-red-400' type="submit">إرسال البيانات</button>
-//       </form>
-      
-//       {message && <p>{message}</p>}
-//     </div>
-//   );
-// };
-
-// export default App;

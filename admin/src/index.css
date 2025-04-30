@@ -6,8 +6,9 @@
     --breakpoint-lg: 976px;
     --breakpoint-xl: 1200px;
     --font-poppins: "Poppins", "serif";
-    --font-display: "Satoshi", "sans-serif";
+    /* --font-display: "Satoshi", "sans-serif"; */
     --breakpoint-3xl: 1920px;
+    --font-display: "Oswald", "sans-serif";
 }
 
 select,

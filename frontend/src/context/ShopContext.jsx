@@ -23,60 +23,68 @@ const ShopContextProvider = ({ children }) => {
     const [token, setToken] = useState('');
     const navigate = useNavigate()
     const [nameConfirmation, setnameConfirmation] = useState();
+    const [fullName, setfullName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [wilaya, setWilaya] = useState('');
+    const [commune, setCommune] = useState('');
+    const [quantity, setQuantity] = useState(0);
+    const [productName, setProductName] = useState();
+     const [deliveryPrice, setdeliveryPrice] = useState(0);
+      const [totalPrice, settotalPrice] = useState(0);
 
 
-    const addCart = (itemId, size) => {
-        if (size === undefined) {
-            return toast.error('Choose Product size ')
-        }
+    // const addCart = (itemId, size) => {
+    //     if (size === undefined) {
+    //         return toast.error('Choose Product size ')
+    //     }
 
-        const newItem = structuredClone(takeItem)
-        if (newItem[itemId]) {
-            if (newItem[itemId][size]) {
-                newItem[itemId][size] += 1
-            } else {
-                newItem[itemId][size] = 1
-            }
-        } else {
-            newItem[itemId] = {}
-            newItem[itemId][size] = 1
-        }
-        setTakeItem(newItem)
-        countOfCarts()
-    }
+    //     const newItem = structuredClone(takeItem)
+    //     if (newItem[itemId]) {
+    //         if (newItem[itemId][size]) {
+    //             newItem[itemId][size] += 1
+    //         } else {
+    //             newItem[itemId][size] = 1
+    //         }
+    //     } else {
+    //         newItem[itemId] = {}
+    //         newItem[itemId][size] = 1
+    //     }
+    //     setTakeItem(newItem)
+    //     countOfCarts()
+    // }
 
-    const countOfCarts = () => {
-        let itemCount = 0
-        for(const items in takeItem){
-            for(const item in takeItem[items]){
-                    if(takeItem[items][item] > 0){
-                        itemCount += takeItem[items][item]
-                } 
-            }
-        }
-        return itemCount
-    }
+    // const countOfCarts = () => {
+    //     let itemCount = 0
+    //     for(const items in takeItem){
+    //         for(const item in takeItem[items]){
+    //                 if(takeItem[items][item] > 0){
+    //                     itemCount += takeItem[items][item]
+    //             } 
+    //         }
+    //     }
+    //     return itemCount
+    // }
     
 
-    const getCartAmount = () => {
-        let cartAmount = 0
-        for(let items in takeItem){
-            let productCart = products.filter((product) => product._id === items)
-            for(const item in takeItem[items]){
-                if(takeItem[items][item] > 0){
-                    cartAmount += productCart[0].price * takeItem[items][item]
-                }
-            }
-        }
-        return cartAmount  
-    }
+    // const getCartAmount = () => {
+    //     let cartAmount = 0
+    //     for(let items in takeItem){
+    //         let productCart = products.filter((product) => product._id === items)
+    //         for(const item in takeItem[items]){
+    //             if(takeItem[items][item] > 0){
+    //                 cartAmount += productCart[0].price * takeItem[items][item]
+    //             }
+    //         }
+    //     }
+    //     return cartAmount  
+    // }
 
 
-    const updateCart = (id, size,quantity) => {
-        const updatedCart = { ...takeItem }; // Copy the original object to avoid direct mutation
-        updatedCart[id][size] = quantity
-        setTakeItem(updatedCart)
-    }
+    // const updateCart = (id, size,quantity) => {
+    //     const updatedCart = { ...takeItem }; // Copy the original object to avoid direct mutation
+    //     updatedCart[id][size] = quantity
+    //     setTakeItem(updatedCart)
+    // }
 
     const getProducts = async () => {
         // try {
@@ -110,11 +118,11 @@ const ShopContextProvider = ({ children }) => {
         setShowSearch,
         searchBar,
         setSearchBar,
-        addCart,
+        // addCart,
         takeItem,
-        updateCart,
-        countOfCarts,
-        getCartAmount,
+        // updateCart,
+        // countOfCarts,
+        // getCartAmount,
         backend_url,
         token,
         setToken,
@@ -123,7 +131,23 @@ const ShopContextProvider = ({ children }) => {
         wilayas,
         communes,
         nameConfirmation,
-        setnameConfirmation
+        setnameConfirmation,
+        setfullName,
+        fullName,
+        setPhone,
+        phone,
+        setWilaya,
+        wilaya,
+        setCommune,
+        commune,
+        quantity,
+        setQuantity,
+        productName,
+        setProductName,
+        deliveryPrice,
+        setdeliveryPrice,
+        totalPrice,
+        settotalPrice
         
     }
 

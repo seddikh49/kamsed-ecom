@@ -5,7 +5,9 @@ const addOrder = async(req, res) => {
         const { fullName, phone, wilaya, commune, productName, quantity } = req.body;
         const orderData = await orderModel.findOne({ phone });
         if (orderData) {
-            return res.json({ success: false, msg: "رقم الهاتف هذا تم الطلب به مسبقا " });
+            const msg = {}
+            msg.message = "رقم الهاتف هذا تم الطلب به مسبقا "
+            return res.json({ success: false, msg: msg });
         }
         const newOrder = new orderModel({
             fullName,
@@ -18,7 +20,7 @@ const addOrder = async(req, res) => {
         const order = await newOrder.save();
         res.json({ success: true, msg: "تم طلب المنتج بنجاح " });
     } catch (error) {
-        console.log(error);
+        res.json({ success: false, msg: error })
     }
 };
 

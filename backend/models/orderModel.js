@@ -3,23 +3,25 @@ import mongoose, { Schema } from 'mongoose'
 const orderSchema = new mongoose.Schema({
     fullName: {
         type: String,
-        required: true
+        required: [true, 'الاسم الكامل مطلوب'],
     },
     phone: {
         type: String,
-        required: true
+        required: [true, 'رقم الهاتف مطلوب'],
     },
     wilaya: {
         type: String,
-        required: true
+        required: [true, 'الولاية مطلوبة']
+
     },
     commune: {
         type: String,
-        required: true
+        required: [true, 'البلدية مطلوبة']
     },
     quantity: {
-        type: String,
-        required: true
+        type: Number,
+        required: true,
+        min: [1, 'الكمية يجب أن تكون أكبر من صفر']
     },
     productName: {
         type: String,

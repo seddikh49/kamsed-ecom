@@ -34,7 +34,7 @@ const Navbar = () => {
     <div className="flex h-[70px] justify-between items-center mb-10   ">
       <Link to={"/"}>
         <h1 className="xl:text-4xl md:text-3xl xm:text-3xl sm:text-4xl font-extrabold font-poppins text-gray-600 ">
-          KAMSED<span className="text-blue-500 text-6xl aspect-square">.</span>
+          KAMSED<span className="text-amber-300 text-6xl aspect-square">.</span>
         </h1>
       </Link>
       <div className="flex justify-between items-center pt-4 ">
@@ -46,7 +46,7 @@ const Navbar = () => {
             }
           >
             <p className="">الصفحة الرئيسية</p>
-            <hr className="h-[2px]  w-3/4 text-blue-500 hidden absolute -bottom-2 " />
+            <hr className="h-[2px]  w-3/4 text-amber-300  hidden absolute -bottom-2 " />
           </NavLink>
           <NavLink
             to={"/collection"}
@@ -55,7 +55,7 @@ const Navbar = () => {
             }
           >
             <p>المنتجات</p>
-            <hr className="h-[2px]  w-2/4 text-blue-500 hidden absolute -bottom-2 " />
+            <hr className="h-[2px]  w-2/4 text-amber-300 hidden absolute -bottom-2 " />
           </NavLink>
           <NavLink
             to={"/about"}
@@ -64,7 +64,7 @@ const Navbar = () => {
             }
           >
             <p>من نحن</p>
-            <hr className="h-[2px] text-blue-500 w-2/4  hidden absolute -bottom-2 " />
+            <hr className="h-[2px] text-amber-30000 w-2/4 text-amber-300  hidden absolute -bottom-2 " />
           </NavLink>
           <NavLink
             to={"/contact"}
@@ -73,7 +73,7 @@ const Navbar = () => {
             }
           >
             <p>تواصل معنا</p>
-            <hr className="h-[2px]  w-2/4 text-blue-500 hidden absolute -bottom-2 " />
+            <hr className="h-[2px]  w-2/4 text-orange-300 hidden absolute -bottom-2 " />
           </NavLink>
         </ul>
       </div>
