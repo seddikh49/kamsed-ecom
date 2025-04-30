@@ -21,8 +21,8 @@ const Hero = () => {
                 <p className='h-[2px] w-11 bg-gray-400'></p>
                 <p className=' text-2xl text-gray-600 font-bold whitespace-nowrap '>المنتجات الأكثر مبيعا</p>
             </div>
-            <div className=' bg-amber-300 pb-4 max-w-max'>
-            <h1 className='xl:text-5xl lg:text-5xl md:text-5xl xm:text-4xl sm:text-4xl text-gray-600 font-bold'>الدفع عند الإستلام</h1>
+            <div className=' bg-orange-400 pb-4 max-w-max'>
+            <h1 className='xl:text-5xl lg:text-5xl md:text-5xl xm:text-4xl sm:text-4xl text-white font-bold'>الدفع عند الإستلام</h1>
             </div>
              <div className='flex items-center gap-2'>
                 <p className='text-2xl text-gray-600 font-bold'> تسوق الآن</p>

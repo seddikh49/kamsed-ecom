@@ -112,29 +112,29 @@ const Product = () => {
     setLoading(true)
     setProductName(product.name)
     setnameConfirmation(fullName)
-    
-      try {
-        const response = await axios.post(`${backend_url}/api/order/add`, {
-          fullName,
-          phone,
-          wilaya,
-          commune,
-          quantity,
-          productName: product.name
-        });
-        if (response.data.success) {
-          setLoading(false)
-          navigate('/confirm')
-        }
-        else {
-          setLoading(false)
-          const errorMessage = response.data.msg.message.split(":")
-          toast.error(errorMessage[errorMessage.length-1])
-        }
-      } catch (error) {
-        console.log(error)
+
+    try {
+      const response = await axios.post(`${backend_url}/api/order/add`, {
+        fullName,
+        phone,
+        wilaya,
+        commune,
+        quantity,
+        productName: product.name
+      });
+      if (response.data.success) {
+        setLoading(false)
+        navigate('/confirm')
       }
-    
+      else {
+        setLoading(false)
+        const errorMessage = response.data.msg.message.split(":")
+        toast.error(errorMessage[errorMessage.length - 1])
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
 
@@ -148,16 +148,15 @@ const Product = () => {
 
   return product && (
     <div className='w-full max-h-max gap-10  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col '>
-      <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max  flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center pr-10  '>
+      <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center sm:justify-start   '>
         <div className='flex flex-col items-end gap-2 pb-3' >
           <p className='text-2xl font-bold'>{product.name}</p>
           <div className='flex text-2xl font-bold'>
             <h1>{currency} </h1>
             <h1>{product.price}  </h1>
           </div>
-          <p className='text-end'> Lorem . Consequveniam maxime, reprehenderit numquam neque nostrum dicta assumenda velit, perspiciatis magnam autem quaerat porro sint?</p>
         </div>
-        <form onSubmit={handleSubmit} className='flex flex-col xl:w-3/4 md:w-2/3  p-7 shadow-[0px_0px_5px_0px_rgba(0,_0,_0,_0.8)] lg:w-6/7 ml-10 sm:w-full  gap-5 xl:items-end sm:items-center' action="">
+        <form onSubmit={handleSubmit} className='flex  flex-col xl:w-[550px] md:w-[550px]  p-7 shadow-[0px_0px_5px_0px_rgba(0,_0,_0,_0.8)] lg:w-[450px] sm:w-[450px]  gap-5 xl:items-end sm:items-center' action="">
           <div className='xl:w-full md:w-full lg:w-full  sm:w-full flex gap-5 xl:flex-row md:flex-row lg:flex-row  sm:flex-col xm:flex-col '>
             <div className='xl:w-1/2 relative sm:w-full xm:w-full'>
               <input onChange={(e) => setPhone(e.target.value)} value={phone} className='w-full bg-gray-100 py-3 font-bold px-9 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' type="text" id="age" min="1" max="100" placeholder=" رقم الهاتف" />
@@ -198,26 +197,26 @@ const Product = () => {
             <h1 className=' py-3 font-bold text-end text-xl ' >:كمية المنتج </h1>
           </div>
           <div className='bg-gray-100/50 rounded-t-md border-1  border-black/30 w-full'>
-            <div className='flex justify-between items-center rounded-t-md p-3 bg-amber-300'>
-              <FaCartShopping className='text-2xl' />
-              <h1 className='text-end  font-bold text-xl pb-2'>: تفاصيل الطلب </h1>
+            <div className='flex justify-between items-center rounded-t-md p-3 bg-orange-400'>
+              <FaCartShopping className='text-2xl text-white' />
+              <h1 className='text-end  font-bold text-xl text-white pb-2'>: تفاصيل الطلب </h1>
             </div>
             <div className='flex flex-col gap-2'>
-              <div className='flex  justify-between p-3'>
-                <p className=' text-end  whitespace-nowrap  font-poppins text-lg'>{product.name}</p>
-                <h1 className='text-end font-bold text-lg'> : المنتج</h1>
+              <div className='flex flex-col gap-2 px-3'>
+                <h1 className='text-end font-bold xl:text-lg lg:text-sm md:text-lg xm:text-sm sm:text-md'> : المنتج</h1>
+                <p className=' text-end  whitespace-nowrap  font-poppins xl:text-lg lg:text-sm md:text-lg xm:text-sm sm:text-mdt'>{product.name}</p>
               </div>
               <div>
-              <div className='flex gap-2 justify-between p-3 '>
+                <div className='flex gap-2 justify-between px-3 '>
                   <div className='flex gap-2 font-bold'>
                     <h1>ق</h1>
                     <h1 className='font-poppins'>{quantity} </h1>
                   </div>
-                  <h1 className=' text-end  font-bold text-lg  '> : الكمية  </h1>
+                  <h1 className=' text-end  font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md '> : الكمية  </h1>
                 </div>
               </div>
-          
-              <div className='flex justify-between gap-2 font-bold text-lg p-3'>
+
+              <div className='flex justify-between gap-2 font-bold xl:text-lg lg:text-lg md:text-lg xm:text-sm sm:text-md px-3'>
                 <div className='flex gap-2'>
                   <h1>{currency}</h1>
                   <h1 className='font-poppins'>{deliveryPrice}</h1>
@@ -241,7 +240,7 @@ const Product = () => {
             <NavLink className={"no-active-style w-full  bg-green-500 py-2 text-white text-center xl:text-xl md:text-xl lg:text-xl xm:text-md rounded-sm flex items-center justify-center whitespace-nowrap"}><FaWhatsapp className=' text-3xl pr-2' /> اضغط هنا للطلب عبر الواتساب </NavLink>
           </div>
           <div className='xl:w-full lg:w-full md:w-full flex gap-5 sm:w-full'>
-            <button className={"no-active-style w-full  bg-blue-500 py-2 font-cairo text-white text-center xl:text-xl md:text-xl lg:text-xl xm:text-md rounded-sm flex items-center justify-center whitespace-nowrap"}>{loading ? <ClipLoader color="#36d7b7" size={30} /> :" اضغط هنا لتأكيد الطلب"} </button>
+            <button className={"no-active-style w-full  bg-blue-500 py-2 font-cairo text-white text-center xl:text-xl md:text-xl lg:text-xl xm:text-md rounded-sm flex items-center justify-center whitespace-nowrap"}>{loading ? <ClipLoader color="#36d7b7" size={30} /> : " اضغط هنا لتأكيد الطلب"} </button>
           </div>
 
 
@@ -250,8 +249,8 @@ const Product = () => {
 
 
       <div className='xl:w-1/2 lg:w-1/2 md:w-full flex flex-col gap-2 justify-center md:items-center xl:items-start '>
-        <img src={product.image[imageIndex]} alt="" className='xl:w-6/9 lg:w-3/5 md:w-4/5' />
-        <div className='grid grid-cols-4 xl:w-6/9  lg:w-3/5 md:w-4/5 gap-2 '>
+        <img src={product.image[imageIndex]} alt="" className='xl:w-[500px] lg:w-[400px] md:w-4/5' />
+        <div className='grid grid-cols-4 xl:w-[500px] lg:w-[400px] md:w-4/5 gap-2 '>
           {product.image.map((img, index) => {
             return (
               <img key={index} onClick={() => setimageIndex(index)} className='cursor-pointer' src={img} alt="" />
