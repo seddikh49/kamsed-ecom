@@ -35,6 +35,20 @@ const getAllOrders = async(req, res) => {
 }
 
 
+const deleteOrder = async(req, res) => {
+    try {
+        const { id } = req.params
+        const deletedOrder = await orderModel.findByIdAndDelete(id)
+        if (deleteOrder) {
+            return res.json({ success: true, msg: 'لقد تم حذف الطلب' })
+        }
+
+    } catch (error) {
+
+    }
+}
+
+
 
 
 export { addOrder, getAllOrders };
