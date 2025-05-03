@@ -57,6 +57,7 @@ const Product = () => {
   const [loading, setLoading] = useState(false);
   const [animationData, setAnimationData] = useState(null);
   const [status, setstatus] = useState('جديد');
+  const [notification, setnotification] = useState(1);
 
 
 
@@ -120,7 +121,8 @@ const Product = () => {
         commune,
         quantity,
         productName: product.name,
-        status
+        status,
+        notification
       });
       if (response.data.success) {
         setLoading(false)

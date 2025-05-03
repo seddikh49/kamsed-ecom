@@ -2,7 +2,7 @@ import orderModel from "../models/orderModel.js";
 
 const addOrder = async(req, res) => {
     try {
-        const { fullName, phone, wilaya, commune, productName, quantity, status } = req.body;
+        const { fullName, phone, wilaya, commune, productName, quantity, status, notification } = req.body;
         const orderData = await orderModel.findOne({ phone });
         if (orderData) {
             const msg = {}
@@ -16,7 +16,8 @@ const addOrder = async(req, res) => {
             commune,
             productName,
             quantity,
-            status
+            status,
+            notification
         });
         const order = await newOrder.save();
         res.json({ success: true, msg: "تم طلب المنتج بنجاح " });

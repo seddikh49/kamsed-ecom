@@ -31,6 +31,10 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    notification: {
+        type: Number,
+        required: true
+    },
     date: {
         type: Date,
         required: true,

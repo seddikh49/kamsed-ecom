@@ -22,10 +22,11 @@ const SideBar = () => {
              <FaRectangleList className='sm:text-1xl xm:text-1xl xl:text-4xl lg:text-4xl md:text-4xl' />
              <p className='sm:hidden  sm:text-[12px]  xl:text-xl md:text-md xl:block lg:block md:block xm:hidden font-bold '>قائمة المنتجات</p>
              </NavLink>
-             <NavLink to={'/orders'} className='flex rounded-l px-3 py-2 w-full  font-sans font-bold    border   items-center gap-3 border-gray-300 border-r-0'>
+             <NavLink to={'/orders'} className='flex rounded-l px-3 py-2 w-full  font-sans font-bold   relative  border   items-center gap-3 border-gray-300 border-r-0'>
                  <PiShoppingBagOpenFill className='sm:text-1xl xm:text-1xl xl:text-4xl lg:text-4xl md:text-4xl' />
 
-                 <p className='sm:hidden  sm:text-[12px] xl:text-xl md:text-md xl:block lg:block md:block  xm:hidden font-bold '>الطلبات</p>
+                 <p className='sm:hidden  sm:text-[12px] xl:text-xl md:text-md xl:block lg:block md:block  xm:hidden font-bold '> الطلبات</p>
+                 <div className='absolute left-1 top-1 bg-red-500 text-white rounded-full w-6 h-6 flex justify-center items-center font-poppins'>10</div> 
              </NavLink>
         </div>
  

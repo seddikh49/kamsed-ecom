@@ -21,34 +21,38 @@ import { TbTruckDelivery } from "react-icons/tb";
 
 
 const Orders = () => {
-  const [orders, setorders] = useState([]);
-  const [copiedOrders, setCopiedOrders] = useState([]);
+  // const [orders, setorders] = useState([]);
+  // const [copiedOrders, setCopiedOrders] = useState([]);
   const [changeState, setChangeState] = useState();
   const [timeStatus, setTimeStatus] = useState();
 
-  const { } = useContext(OrderContext)
+  const {  orders,
+    setorders,
+    copiedOrders,
+    setCopiedOrders,} = useContext(OrderContext)
 
-  const fetchOrders = async () => {
-    try {
-      const response = await axios.get(`${backEndUrl}/api/order/list`)
-      if (response) {
-        //   const formattedOrders = response.data.order.map(order => ({
-        //     ...order,
-        //     date: new Date(order.date).toLocaleDateString('en-GB')  // تحويل بسيط
-        //   }));
-        setorders(response.data.order)
-        setCopiedOrders(response.data.order)
+  // const fetchOrders = async () => {
+  //   try {
+  //     const response = await axios.get(`${backEndUrl}/api/order/list`)
+  //     if (response) {
+  //       //   const formattedOrders = response.data.order.map(order => ({
+  //       //     ...order,
+  //       //     date: new Date(order.date).toLocaleDateString('en-GB')  // تحويل بسيط
+  //       //   }));
+  //       setorders(response.data.order)
+  //       setCopiedOrders(response.data.order)
+  //       console.log(response.data.order[0].notification)
 
-      }
+  //     }
 
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchOrders()
-  }, []);
+  // useEffect(() => {
+  //   fetchOrders()
+  // }, []);
 
 
   const handleDelete = (id) => {
@@ -97,7 +101,7 @@ const Orders = () => {
   }
 
   const filterStatus = () => {
-    if (changeState === 'حسب الحالة :') {
+    if (changeState === 'حسب الحالة') {
       return setorders(copiedOrders)
     }
 
@@ -146,7 +150,7 @@ const Orders = () => {
           <div className='flex gap-3 sm:justify-between xm:justify-between  sm:flex-row xm:flex-col'>
             <div >
               <select className="border py-3 px-3 rounded font-bold" value={changeState} onChange={(e) => setChangeState(e.target.value)}>
-                <option name="" id="">حسب الحالة : </option>
+                <option name="" id="">حسب الحالة</option>
                 {status.map((sta, index) => {
                   return <option key={index} className='font-bold' value={sta}>{sta} </option>
                 })}
@@ -154,7 +158,7 @@ const Orders = () => {
             </div>
             <div>
               <select onChange={(e) => setTimeStatus(e.target.value)} value={timeStatus} className="border py-3 px-3 rounded font-bold">
-                <option>التاريخ</option>
+                <option>حسب التاريخ</option>
                 <option className='font-bold' value={'جديد'}>الجديد</option>
                 <option className='font-bold' value={'قديم'}>القديم</option>
               </select>
