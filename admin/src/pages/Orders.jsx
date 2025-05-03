@@ -8,6 +8,12 @@ import { FaEye } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
 import { OrderContext } from '../context/orderContext';
+import { GrInProgress } from "react-icons/gr";
+import { MdOutlineNewReleases } from "react-icons/md";
+import { TbShoppingCartCancel } from "react-icons/tb";
+import { TbTruckDelivery } from "react-icons/tb";
+
+
 
 
 
@@ -17,21 +23,22 @@ import { OrderContext } from '../context/orderContext';
 const Orders = () => {
   const [orders, setorders] = useState([]);
   const [copiedOrders, setCopiedOrders] = useState([]);
+  const [changeState, setChangeState] = useState();
+  const [timeStatus, setTimeStatus] = useState();
 
-
- const {} = useContext(OrderContext)
+  const { } = useContext(OrderContext)
 
   const fetchOrders = async () => {
     try {
       const response = await axios.get(`${backEndUrl}/api/order/list`)
       if (response) {
-        const formattedOrders = response.data.order.map(order => ({
-          ...order,
-          date: new Date(order.date).toLocaleDateString('en-GB')  // تحويل بسيط
-        }));
-        setorders(formattedOrders)
-        setCopiedOrders(formattedOrders)
-        console.log(orders[0].status)
+        //   const formattedOrders = response.data.order.map(order => ({
+        //     ...order,
+        //     date: new Date(order.date).toLocaleDateString('en-GB')  // تحويل بسيط
+        //   }));
+        setorders(response.data.order)
+        setCopiedOrders(response.data.order)
+
       }
 
     } catch (error) {
@@ -89,8 +96,43 @@ const Orders = () => {
 
   }
 
+  const filterStatus = () => {
+    if (changeState === 'حسب الحالة :') {
+      return setorders(copiedOrders)
+    }
+
+    const filter = copiedOrders.filter((st) => {
+      return st.status === changeState
+    })
+    setorders(filter)
+  }
 
 
+  const filterTimeStatus = () => {
+   
+    if (timeStatus === 'جديد') {
+      const filterTime = [...orders].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date)
+      })
+      setorders(filterTime)
+
+    }
+    else {
+      const filterTime = [...orders].sort((a, b) => {
+        return new Date(a.date) - new Date(b.date)
+      })
+      setorders(filterTime)
+    }
+  }
+
+  useEffect(() => {
+    filterStatus()
+  }, [changeState]);
+
+  useEffect(() => {
+
+    filterTimeStatus()
+  }, [timeStatus]);
 
 
   return (
@@ -101,22 +143,23 @@ const Orders = () => {
             <FaSearch className='absolute top-4 left-3 text-xl text-gray-600' />
             <input type="text" onChange={filterOrders} className='py-3 px-3 xl:w-96 lg:w-full xm:w-full sm:w-full' placeholder='البحث في الطلبات' />
           </div>
-         <div className='flex gap-3 sm:justify-between xm:justify-between  sm:flex-row xm:flex-col'>
-         <div >
-            <select className="border py-3 px-3 rounded font-bold">
-              {status.map((sta, index) => {
-                return <option key={index} className='font-bold' value="">{sta} </option>
-              })}
-            </select>
+          <div className='flex gap-3 sm:justify-between xm:justify-between  sm:flex-row xm:flex-col'>
+            <div >
+              <select className="border py-3 px-3 rounded font-bold" value={changeState} onChange={(e) => setChangeState(e.target.value)}>
+                <option name="" id="">حسب الحالة : </option>
+                {status.map((sta, index) => {
+                  return <option key={index} className='font-bold' value={sta}>{sta} </option>
+                })}
+              </select>
+            </div>
+            <div>
+              <select onChange={(e) => setTimeStatus(e.target.value)} value={timeStatus} className="border py-3 px-3 rounded font-bold">
+                <option>التاريخ</option>
+                <option className='font-bold' value={'جديد'}>الجديد</option>
+                <option className='font-bold' value={'قديم'}>القديم</option>
+              </select>
+            </div>
           </div>
-          <div>
-            <select className="border py-3 px-3 rounded font-bold">
-              <option>التاريخ</option>
-              <option className='font-bold'>Today</option>
-              <option className='font-bold'> This week</option>
-            </select>
-          </div>
-         </div>
 
         </div>
         <div className='flex gap-4 bg-amber-50  justify-center items-center  w-full overflow-hidden rounded-xl border border-gray-300  '>
@@ -135,7 +178,7 @@ const Orders = () => {
               {orders.map((order, index) => {
                 return (
                   <tr key={index} className="border border-gray-300">
-                  
+
                     <td className='py-2  flex border-gray-200 gap-3 justify-center'>
                       <button onClick={() => handleDelete(order._id)} className='cursor-pointer hover:bg-red-800 bg-red-500 text-white xl:py-3  xm:py-[5px] xm:px-2  xl:px-3 font-bold rounded-md'>
                         <MdDelete />
@@ -146,13 +189,28 @@ const Orders = () => {
 
                       </NavLink>
                     </td>
-                    <td className={`md:hidden sm:hidden text-center xm:hidden xl:table-cell   `}> 
-                      <div className={`${order.status === 'جديد' ? 'bg-blue-400' : order.status === "قيد المراجعة" ? 'bg-orange-400' : order.status === 'ملغى' ? 'bg-red-400' : 'bg-green-500'} text-white py-2 w-30 rounded-sm  font-bold inline-block cursor-pointer `}>{order.status} </div>
+                    <td className={`md:hidden sm:hidden text-center xm:hidden xl:table-cell flex `}>
+                      <div className={`${order.status === 'جديد' ?
+                         'bg-blue-400' : order.status === "قيد المراجعة" ?
+                          'bg-orange-400' : order.status === 'ملغى' ? 'bg-red-400' :
+                           'bg-green-500'} text-white py-2 w-38 rounded-sm  font-bold inline-block cursor-pointer relative `}><h1>{order.status}   {order.status === "تم التوصيل" ? <TbTruckDelivery className='absolute left-1 top-[10px] text-xl' />:
+                           order.status === "جديد" ? <MdOutlineNewReleases className='absolute left-1 top-[10px] text-xl' /> : order.status === "ملغى" ? <TbShoppingCartCancel className='absolute left-1 top-[10px] text-xl' /> :  <GrInProgress className='absolute left-1 top-[10px] text-xl' /> 
+                           } </h1>
+                      </div>
+                    
+                     
                     </td>
-                    <td className="py-1 border-b-gray-200  xl:table-cell  md:hidden sm:hidden xm:hidden  ">{order.date} </td>
+                    {/* <td className="py-1 border-b-gray-200  xl:table-cell  md:hidden sm:hidden xm:hidden  ">{order.date} </td> */}
+                    <td className="py-1 border-b-gray-200 xl:table-cell md:hidden sm:hidden xm:hidden">
+                      {new Date(order.date).toLocaleDateString('en-EG', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                      })}
+                    </td>
                     <td className="py-1 border-b-gray-200 xl:table-cell  md:hidden sm:hidden xm:hidden ">{order.phone} </td>
                     <td className="py-1 border-b-gray-200 xm:text-sm xl:text-xl lg:text-xl md:text-xl "> {order.fullName}</td>
-                    <td className="py-1 border border-gray-200  ">{index+1} #</td>
+                    <td className="py-1 border border-gray-200  ">{index + 1} #</td>
                   </tr>
                 )
               })}

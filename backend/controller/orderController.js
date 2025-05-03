@@ -75,7 +75,7 @@ const updateOrder = async(req, res) => {
 
         // التحقق إذا كان الطلب تم تحديثه بنجاح
         if (updatedOrder) {
-            return res.json({ success: true, msg: 'تم تحديث الطلب بنجاح' });
+            return res.json({ success: true, msg: 'تم تحديث الطلب بنجاح', status: status });
         } else {
             return res.json({ success: false, msg: 'لا يمكن تحديث هذا الطلب' });
         }

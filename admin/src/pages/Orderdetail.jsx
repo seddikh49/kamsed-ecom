@@ -15,7 +15,8 @@ const Orderdetail = () => {
 
     const [orders, setorders] = useState([]);
     const [singleOrder, setsingleOrder] = useState([]);
-    const [status, setStatus] = useState();
+    const [status, setStatus] = useState("جديد");
+    const [statusIndex, setStatusIndex] = useState();
 
     const fetchOrders = async () => {
         try {
@@ -55,18 +56,22 @@ const Orderdetail = () => {
 
 
     const updateStatus = async (newStatus, id) => {
-        console.log(newStatus, id)
         try {
             const response = await axios.put(`${backEndUrl}/api/order/update/${id}`, {
                 status: newStatus
             });
             setStatus(response.data.status); // تحديث الحالة في الواجهة بعد التحديث في قاعدة البيانات
-          
+
         } catch (err) {
             console.error('حدث خطأ أثناء التحديث', err);
-         
+
         }
     };
+
+useEffect(() => {
+    
+
+}, [status]);
 
 
 
@@ -101,13 +106,24 @@ const Orderdetail = () => {
                     <h1 className='font-bold'>: تاريخ الطلب </h1>
                 </div>
             </div>
-            <select dir='rtl' value={status} onChange={(e) => updateStatus(e.target.value, singleOrder[0]._id)} className='flex gap-4 p-5'>
-                {listStatus.map((sta, index) => {
-                    return (
-                        <option key={index} >{sta} </option>
-                    )
-                })}
-            </select>
+            <div dir='rtl' className='text-center flex items-center gap-5 p-5'>
+                <h1 className='font-bold text-2xl'>الحالة</h1>
+                <h1 className={`${status === 'جديد' ? 'bg-blue-400' : status === "قيد المراجعة" ? 'bg-orange-400' : status === 'ملغى' ? 'bg-red-400' : 'bg-green-500'} text-white py-2 w-30 rounded-sm  font-bold  cursor-pointer `}>{status} </h1>
+
+            </div>
+            <div dir='rtl' className='flex  items-center gap-5 p-5'>
+                <div>
+                    <h1 className='font-bold text-2xl'>تغيير الحالة  :</h1>
+                </div>
+                <select value={status} onChange={(e) => updateStatus(e.target.value, singleOrder[0]._id)} className='flex gap-4 px-5 py-3  font-bold'>
+                 
+                    {listStatus.map((sta, index) => {
+                        return (
+                            <option className=' font-bold' key={index} >{sta} </option>
+                        )
+                    })}
+                </select>
+            </div>
         </div>
     )
 }
