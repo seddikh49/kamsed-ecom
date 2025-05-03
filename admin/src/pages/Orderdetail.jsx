@@ -1,14 +1,21 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { backEndUrl } from '../App'
+import { OrderContext } from '../context/orderContext';
+
 
 
 const Orderdetail = () => {
+
+    const { orderStatus, setStatusOrder } = useContext(OrderContext)
     const pathname = useParams()
+
+
 
     const [orders, setorders] = useState([]);
     const [singleOrder, setsingleOrder] = useState([]);
+    const [status, setStatus] = useState();
 
     const fetchOrders = async () => {
         try {
@@ -36,17 +43,34 @@ const Orderdetail = () => {
     }, [orders]);
 
     const getOrder = async () => {
-       
-            const oneOrder = orders.filter((or) => {
-                return or.fullName === pathname.name
-            })
-            setsingleOrder(oneOrder)
+        const oneOrder = orders.filter((or) => {
+            return or.fullName === pathname.name
+        })
+        setsingleOrder(oneOrder)
+    }
+
+    const [listStatus, setListStatus] = useState([
+        'جديد', 'قيد المراجعة', 'تم التوصيل', 'ملغى'
+    ]);
+
+
+    const updateStatus = async (newStatus, id) => {
+        console.log(newStatus, id)
+        try {
+            const response = await axios.put(`${backEndUrl}/api/order/update/${id}`, {
+                status: newStatus
+            });
+            setStatus(response.data.status); // تحديث الحالة في الواجهة بعد التحديث في قاعدة البيانات
+          
+        } catch (err) {
+            console.error('حدث خطأ أثناء التحديث', err);
+         
         }
+    };
 
-     
 
 
-    return singleOrder.length &&  (
+    return singleOrder.length && (
         <div>
             <div className='p-5'>
                 <h1 className='text-end xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl font-bold'>: تفاصيل الطلب</h1>
@@ -77,6 +101,13 @@ const Orderdetail = () => {
                     <h1 className='font-bold'>: تاريخ الطلب </h1>
                 </div>
             </div>
+            <select dir='rtl' value={status} onChange={(e) => updateStatus(e.target.value, singleOrder[0]._id)} className='flex gap-4 p-5'>
+                {listStatus.map((sta, index) => {
+                    return (
+                        <option key={index} >{sta} </option>
+                    )
+                })}
+            </select>
         </div>
     )
 }

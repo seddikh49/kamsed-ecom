@@ -2,7 +2,7 @@ import orderModel from "../models/orderModel.js";
 
 const addOrder = async(req, res) => {
     try {
-        const { fullName, phone, wilaya, commune, productName, quantity } = req.body;
+        const { fullName, phone, wilaya, commune, productName, quantity, status } = req.body;
         const orderData = await orderModel.findOne({ phone });
         if (orderData) {
             const msg = {}
@@ -15,7 +15,8 @@ const addOrder = async(req, res) => {
             wilaya,
             commune,
             productName,
-            quantity
+            quantity,
+            status
         });
         const order = await newOrder.save();
         res.json({ success: true, msg: "تم طلب المنتج بنجاح " });
@@ -23,6 +24,8 @@ const addOrder = async(req, res) => {
         res.json({ success: false, msg: error })
     }
 };
+
+
 
 const getAllOrders = async(req, res) => {
     try {
@@ -33,6 +36,8 @@ const getAllOrders = async(req, res) => {
         console.log(error)
     }
 }
+
+
 
 
 const deleteOrder = async(req, res) => {
@@ -51,6 +56,33 @@ const deleteOrder = async(req, res) => {
 }
 
 
+const updateOrder = async(req, res) => {
+    try {
+        // استلام المعرف (ID) من المعلمات
+        const { id } = req.params;
+        // استلام البيانات التي سيتم تحديثها من الجسم (req.body)
+        const { status } = req.body;
 
+        // البحث عن الطلب في قاعدة البيانات وتحديثه
+        const updatedOrder = await orderModel.findByIdAndUpdate(
+            id, // المعرف
+            {
+                status, // تحديث الحالة
 
-export { addOrder, getAllOrders, deleteOrder };
+            }, // ارجاع الوثيقة المحدثة
+            // { new: true }
+        );
+
+        // التحقق إذا كان الطلب تم تحديثه بنجاح
+        if (updatedOrder) {
+            return res.json({ success: true, msg: 'تم تحديث الطلب بنجاح' });
+        } else {
+            return res.json({ success: false, msg: 'لا يمكن تحديث هذا الطلب' });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, msg: 'حدث خطأ أثناء التحديث' });
+    }
+};
+
+export { addOrder, getAllOrders, deleteOrder, updateOrder };

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { assets } from '../‏‏assets/frontend_assets/assets'
-import RelatedProducts from '../componets/RelatedProducts'
+
 import { ShopContext } from '../context/shopContext'
 import { NavLink } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
@@ -13,7 +12,6 @@ import { FaPhone } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
 import { toast } from 'react-toastify'
 import { ClipLoader } from "react-spinners";
-import Lottie from "lottie-react";
 
 
 
@@ -58,6 +56,7 @@ const Product = () => {
   const [communess, setCommuness] = useState([]);
   const [loading, setLoading] = useState(false);
   const [animationData, setAnimationData] = useState(null);
+  const [status, setstatus] = useState('جديد');
 
 
 
@@ -120,7 +119,8 @@ const Product = () => {
         wilaya,
         commune,
         quantity,
-        productName: product.name
+        productName: product.name,
+        status
       });
       if (response.data.success) {
         setLoading(false)
