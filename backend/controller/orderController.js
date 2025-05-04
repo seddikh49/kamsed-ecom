@@ -62,13 +62,14 @@ const updateOrder = async(req, res) => {
         // استلام المعرف (ID) من المعلمات
         const { id } = req.params;
         // استلام البيانات التي سيتم تحديثها من الجسم (req.body)
-        const { status } = req.body;
+        const { status, notification } = req.body;
+
 
         // البحث عن الطلب في قاعدة البيانات وتحديثه
         const updatedOrder = await orderModel.findByIdAndUpdate(
             id, // المعرف
             {
-                status, // تحديث الحالة
+                status
 
             }, // ارجاع الوثيقة المحدثة
             // { new: true }
@@ -86,4 +87,24 @@ const updateOrder = async(req, res) => {
     }
 };
 
-export { addOrder, getAllOrders, deleteOrder, updateOrder };
+
+
+const updateAllNotifications = async(req, res) => {
+    try {
+        // تحديث جميع الطلبات وجعل notification 0
+        const result = await orderModel.updateMany({}, // بدون فلتر، يعني سيتم تحديث جميع الطلبات
+            { $set: { notification: 0 } } // تعيين notification إلى 0 لجميع الطلبات
+        );
+
+        if (result.modifiedCount > 0) {
+            res.json({ success: true, msg: "تم تحديث جميع الإشعارات بنجاح" });
+        } else {
+            res.json({ success: false, msg: "لا توجد طلبات لتحديثها" });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, msg: "حدث خطأ أثناء التحديث" });
+    }
+}
+
+export { addOrder, getAllOrders, deleteOrder, updateOrder, updateAllNotifications };

@@ -8,47 +8,32 @@ import { OrderContext } from '../context/orderContext';
 
 const Orderdetail = () => {
 
-    const { orderStatus, setStatusOrder } = useContext(OrderContext)
+    const { orderStatus, orders} = useContext(OrderContext)
     const pathname = useParams()
 
 
 
-    const [orders, setorders] = useState([]);
     const [singleOrder, setsingleOrder] = useState([]);
     const [status, setStatus] = useState("جديد");
     const [statusIndex, setStatusIndex] = useState();
 
-    const fetchOrders = async () => {
-        try {
-            const response = await axios.get(`${backEndUrl}/api/order/list`)
-            if (response) {
-                const formattedOrders = response.data.order.map(order => ({
-                    ...order,
-                    date: new Date(order.date).toLocaleDateString('en-GB')  // تحويل بسيط
-                }));
-                setorders(formattedOrders)
-            }
 
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        fetchOrders()
-
-    }, []);
-
-    useEffect(() => {
-        getOrder()
-    }, [orders]);
 
     const getOrder = async () => {
         const oneOrder = orders.filter((or) => {
             return or.fullName === pathname.name
         })
         setsingleOrder(oneOrder)
+        if (oneOrder.length > 0) {
+            setStatus(oneOrder[0].status);
+        }
+        
     }
+
+     
+    useEffect(() => {
+        getOrder()
+    }, [orders]);
 
     const [listStatus, setListStatus] = useState([
         'جديد', 'قيد المراجعة', 'تم التوصيل', 'ملغى'
@@ -56,23 +41,18 @@ const Orderdetail = () => {
 
 
     const updateStatus = async (newStatus, id) => {
+        
         try {
             const response = await axios.put(`${backEndUrl}/api/order/update/${id}`, {
                 status: newStatus
             });
-            setStatus(response.data.status); // تحديث الحالة في الواجهة بعد التحديث في قاعدة البيانات
-
+            // console.log(response.data.status)
+        setStatus(response.data.status)
         } catch (err) {
             console.error('حدث خطأ أثناء التحديث', err);
 
         }
     };
-
-useEffect(() => {
-    
-
-}, [status]);
-
 
 
     return singleOrder.length && (

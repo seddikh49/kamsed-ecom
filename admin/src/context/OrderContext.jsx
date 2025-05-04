@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios'
 import { backEndUrl } from '../App'
+
 // إنشاء السياق
 export const OrderContext = createContext();
 
@@ -17,8 +18,6 @@ const OrderContextProvider = ({ children }) => {
       if (response) {
         setorders(response.data.order)
         setCopiedOrders(response.data.order)
-        console.log(response.data.order[0].notification)
-
       }
 
     } catch (error) {
@@ -41,7 +40,9 @@ const OrderContextProvider = ({ children }) => {
     copiedOrders,
     setCopiedOrders,
     orderStatus,
-    setStatusOrder
+    setStatusOrder,
+    fetchOrders,
+    backEndUrl
   }
 
 

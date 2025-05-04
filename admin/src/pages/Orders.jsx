@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { backEndUrl } from '../App'
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
@@ -29,37 +28,18 @@ const Orders = () => {
   const {  orders,
     setorders,
     copiedOrders,
-    setCopiedOrders,} = useContext(OrderContext)
+    setCopiedOrders,
+    backEndUrl,
+    fetchOrders} = useContext(OrderContext)
+ 
 
-  // const fetchOrders = async () => {
-  //   try {
-  //     const response = await axios.get(`${backEndUrl}/api/order/list`)
-  //     if (response) {
-  //       //   const formattedOrders = response.data.order.map(order => ({
-  //       //     ...order,
-  //       //     date: new Date(order.date).toLocaleDateString('en-GB')  // تحويل بسيط
-  //       //   }));
-  //       setorders(response.data.order)
-  //       setCopiedOrders(response.data.order)
-  //       console.log(response.data.order[0].notification)
-
-  //     }
-
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   fetchOrders()
-  // }, []);
 
 
   const handleDelete = (id) => {
-    console.log(id)
+
     Swal.fire({
       title: 'تحذير',
-      text: 'هل تريد حقا حذف هذا الطلب ؟',
+      text: 'هل تريد حذف هذا الطلب ؟',
       icon: 'warning',
       confirmButtonText: 'نعم',
       showCancelButton: true,
