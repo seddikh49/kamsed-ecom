@@ -17,7 +17,7 @@ import Confirm from './pages/Confirm'
 
 const App = () => {
   return (
-    <div className='px-4 xl:px-[10vh] lg:px-[4vh] md:px-[6vh] sm:px-[2vh] w-full'>
+    <div className='px-4 xl:px-[10vh] lg:px-[4vh] md:px-[6vh] sm:px-[2vh] w-full '>
       <ToastContainer/>
       <Navbar/>
       <SearchBar/>

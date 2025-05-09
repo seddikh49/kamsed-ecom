@@ -20,15 +20,13 @@ import { TbTruckDelivery } from "react-icons/tb";
 
 
 const Orders = () => {
-  // const [orders, setorders] = useState([]);
-  // const [copiedOrders, setCopiedOrders] = useState([]);
+
   const [changeState, setChangeState] = useState();
   const [timeStatus, setTimeStatus] = useState();
 
   const {  orders,
     setorders,
     copiedOrders,
-    setCopiedOrders,
     backEndUrl,
     fetchOrders} = useContext(OrderContext)
  
@@ -62,7 +60,7 @@ const Orders = () => {
     })
   }
 
-  const [status, setstatus] = useState([
+  const [allStatus, setAllStatus] = useState([
     'جديد', 'قيد المراجعة', 'تم التوصيل', 'ملغى'
   ]);
 
@@ -131,7 +129,7 @@ const Orders = () => {
             <div >
               <select className="border py-3 px-3 rounded font-bold" value={changeState} onChange={(e) => setChangeState(e.target.value)}>
                 <option name="" id="">حسب الحالة</option>
-                {status.map((sta, index) => {
+                {allStatus.map((sta, index) => {
                   return <option key={index} className='font-bold' value={sta}>{sta} </option>
                 })}
               </select>
@@ -185,16 +183,16 @@ const Orders = () => {
                      
                     </td>
                     {/* <td className="py-1 border-b-gray-200  xl:table-cell  md:hidden sm:hidden xm:hidden  ">{order.date} </td> */}
-                    <td className="py-1 border-b-gray-200 xl:table-cell md:hidden sm:hidden xm:hidden">
+                    <td className="py-1 border-b-gray-200 xl:table-cell md:hidden sm:hidden xm:hidden font-bold">
                       {new Date(order.date).toLocaleDateString('en-EG', {
                         day: '2-digit',
                         month: '2-digit',
                         year: 'numeric',
                       })}
                     </td>
-                    <td className="py-1 border-b-gray-200 xl:table-cell  md:hidden sm:hidden xm:hidden ">{order.phone} </td>
-                    <td className="py-1 border-b-gray-200 xm:text-sm xl:text-xl lg:text-xl md:text-xl "> {order.fullName}</td>
-                    <td className="py-1 border border-gray-200  ">{index + 1} #</td>
+                    <td className="py-1 border-b-gray-200 xl:table-cell  md:hidden sm:hidden xm:hidden font-bold ">{order.phone} </td>
+                    <td className="py-1 border-b-gray-200 xm:text-sm xl:text-xl lg:text-xl md:text-xl font-bold "> {order.fullName}</td>
+                    <td className="py-1 border border-gray-200 font-bold  ">#{index + 1}</td>
                   </tr>
                 )
               })}

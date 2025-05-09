@@ -8,13 +8,13 @@ import { OrderContext } from '../context/orderContext';
 
 const Orderdetail = () => {
 
-    const { orderStatus, orders} = useContext(OrderContext)
+    const { orderStatus, orders,status,setStatus} = useContext(OrderContext)
     const pathname = useParams()
 
 
 
     const [singleOrder, setsingleOrder] = useState([]);
-    const [status, setStatus] = useState("جديد");
+    
     const [statusIndex, setStatusIndex] = useState();
 
 

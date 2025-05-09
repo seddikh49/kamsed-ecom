@@ -8,7 +8,7 @@ import { ShopContext } from '../context/shopContext';
 
 const Collection = () => {
 
-  const { products, search, wilayas, communes } = useContext(ShopContext)
+  const { products, search, wilayas, communes,rotateIcon } = useContext(ShopContext)
 
 
   const [category, setCategory] = useState([])
@@ -99,7 +99,7 @@ const Collection = () => {
     <div className=' w-full flex xl:flex-row  md:flex-col xm:flex-col sm:flex-col lg:flex-row  justify-between '>
       <div className='sm:w-full  md:w-full xl:w-72 lg:w-52 flex flex-col gap-y-5 xl:p-8 xm:pl-8 '>
         <h1 onClick={showCategoriesHandle} className='font-poppins font-bold text-gray-600 text-2xl xl:mb-8 lg:mb-8 flex items-center gap-1 '>FILTERS
-          <span className='xl:hidden lg:hidden '><GoChevronDown className={`${icon ? 'rotate-0' : 'rotate-180'} transition-all duration-300`} />
+          <span className='xl:hidden lg:hidden z-2 '><GoChevronDown className={`${icon ? 'rotate-0' : 'rotate-180'} ${rotateIcon ? 'inline-block' : 'hidden'}  transition-all duration-500`} />
           </span>
         </h1>
         <div className={`border w-full  border-gray-300 flex flex-col gap-5 p-5 xl:flex  lg:flex ${showCategories}  xm:${showCategories} md:${showCategories}`}>
@@ -155,7 +155,7 @@ const Collection = () => {
           </div>
           <Title text1={'المنتجات'} text2={'جميع'} />
         </div>
-        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
+        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
           {allProducts.map((item) => {
             return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
           })}

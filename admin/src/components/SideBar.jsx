@@ -29,6 +29,7 @@ const SideBar = () => {
     }, 0)
     setNotifications(addition);
   }
+  
   useEffect(() => {
     reduceNotifications()
   }, [orders]);

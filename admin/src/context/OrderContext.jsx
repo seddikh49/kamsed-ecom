@@ -10,6 +10,7 @@ const OrderContextProvider = ({ children }) => {
   const [orders, setorders] = useState([]);
   const [copiedOrders, setCopiedOrders] = useState([]);
   const [notofications, setnotofications] = useState();
+  const [status, setStatus] = useState("جديد");
 
 
   const fetchOrders = async () => {
@@ -28,7 +29,7 @@ const OrderContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchOrders()
-  }, []);
+  }, [status]);
 
 
 
@@ -42,7 +43,9 @@ const OrderContextProvider = ({ children }) => {
     orderStatus,
     setStatusOrder,
     fetchOrders,
-    backEndUrl
+    backEndUrl,
+    status, 
+    setStatus
   }
 
 

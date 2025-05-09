@@ -66,43 +66,43 @@ const Add = ({token}) => {
 
   
   return (
-    <div className='p-10 w-full'>
+    <div dir='rtl' className='p-10 w-full'>
       <form onSubmit={handleSubmit} className='flex flex-col items-start gap-3' action="">
         <div className='flex flex-col gap-2'>
-          <h1 className='text-xl font-poppins'>Upload Image</h1>
+          <h1 className='text-xl font-bold'>صور المنتج</h1>
           <div className='flex gap-2'>
-            <label htmlFor="image1">
+            <label htmlFor="image1" className='cursor-cell'>
               <img className='w-20 h-15' src={!image1 ? assets.upload_area : URL.createObjectURL(image1)} alt="" />
               <input onChange={(e)=> setImage1(e.target.files[0])} type="file" id='image1' hidden />
             </label>
 
-            <label htmlFor="image2">
+            <label htmlFor="image2" className='cursor-cell'>
               <img className='w-20 h-15' src={!image2 ? assets.upload_area : URL.createObjectURL(image2)} alt="" />
               <input onChange={(e)=> setImage2(e.target.files[0])} type="file" id='image2' hidden />
             </label>
 
-            <label htmlFor="image3">
+            <label htmlFor="image3" className='cursor-cell'>
               <img className='w-20 h-15' src={!image3 ? assets.upload_area : URL.createObjectURL(image3)} alt="" />
               <input onChange={(e)=> setImage3(e.target.files[0])} type="file" id='image3' hidden />
             </label>
 
-            <label htmlFor="image4">
+            <label htmlFor="image4" className='cursor-cell'>
               <img className='w-20 h-15' src={!image4 ? assets.upload_area : URL.createObjectURL(image4)} alt="" />
               <input onChange={(e)=> setImage4(e.target.files[0])} type="file" id='image4' hidden />
             </label>
           </div>
         </div>
         <div className='w-full '>
-          <p className='mb-2 font-poppins'>Product name</p>
+          <p className='mb-2 font-bold'>اسم المنتج </p>
           <input onChange={(e)=> setName(e.target.value)} value={name} type="text" placeholder='Type here' className=' w-full max-w-[500px] font-poppins px-4 py-2' />
         </div>
         <div className='w-full'>
-          <p className='mb-2 font-poppins'>Product descrition</p>
+          <p className='mb-2 font-bold'>وصف المنتج</p>
           <textarea onChange={(e)=> setdescription(e.target.value)} value={description} type="text" placeholder='Write content here' className=' w-full max-w-[500px] font-poppins px-4 py-2' />
         </div>
         <div className='flex sm:flex-col xl:flex-row w-full gap-4 xm:flex-col'>
           <div className=''>
-            <p className='mb-2 font-poppins whitespace-nowrap'>Product category</p>
+            <p className='mb-2 font-bold whitespace-nowrap'>الفئة</p>
             <select onChange={(e)=> setCategory(e.target.value)} value={category}  className='py-2 px-5 font-poppins' name="" id="">
               <option value="Men">Men</option>
               <option value="Women">Women</option>
@@ -110,21 +110,13 @@ const Add = ({token}) => {
             </select>
           </div>
           <div className=''>
-            <p className='mb-2 font-poppins whitespace-nowrap'>Product subcategory</p>
-           
-          </div>
-          <div className=''>
-            <p className='mb-2 font-poppins'>Product price</p>
+            <p className='mb-2 font-bold'>سعر المنتج</p>
             <input onChange={(e)=> setprice(Number(e.target.value))} value={price} className='py-2 font-poppins px-4 ' type="Number" />
           </div>
         </div>
         <div >
-          <p>Product sizes</p>
-          <div className='flex gap-3 mt-3'>
-            
-          </div>
-          <div className='mt-5 mb-5  gap-3'>
-            <button className='bg-black text-white px-10 py-2 cursor-pointer'>ADD</button>
+          <div className='mt-3 mb-5  gap-3'>
+            <button className='bg-black text-white px-10 py-2 cursor-pointer font-bold'>اضافة المنتج</button>
           </div>
         </div>
       </form>
