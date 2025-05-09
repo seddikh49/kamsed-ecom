@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { backEndUrl } from '../App';
 import axios from 'axios'
 import { toast } from 'react-toastify';
 
+import { OrderContext } from '../context/orderContext';
+
+
 
 const Login = ({setToken}) => {
+  const {isAdmin, setIsAdmin} = useContext(OrderContext)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- 
+   
 
   const  onHandleSubmit = async(e) =>{
-    console.log(localStorage.getItem('token'))
+    
     try {
       e.preventDefault();
       const response = await axios.post(backEndUrl+'/api/user/admin', {
@@ -21,12 +25,13 @@ const Login = ({setToken}) => {
       if(response.data.success){
         setToken(response.data.token)
         toast.success('successfully')
+        setIsAdmin(true)
       }
       else{  
         toast.error('Wrong email or password')
       }
     } catch (error) {
-  
+       console.log(error)
     }
   }
 

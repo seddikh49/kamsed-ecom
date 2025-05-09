@@ -11,6 +11,7 @@ const OrderContextProvider = ({ children }) => {
   const [copiedOrders, setCopiedOrders] = useState([]);
   const [notofications, setnotofications] = useState();
   const [status, setStatus] = useState("جديد");
+    const [isAdmin, setIsAdmin] = useState();
 
 
   const fetchOrders = async () => {
@@ -45,7 +46,9 @@ const OrderContextProvider = ({ children }) => {
     fetchOrders,
     backEndUrl,
     status, 
-    setStatus
+    setStatus,
+    isAdmin, 
+    setIsAdmin
   }
 
 

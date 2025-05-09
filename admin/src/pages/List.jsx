@@ -45,7 +45,7 @@ const List = ({ token }) => {
 
   return (
     <div className='p-10 flex flex-col gap-6'>
-      <p className='mb-5 text-end font-bold text-4xl text-gray-800'>جميع المنتجات</p>
+      <p className='mb-3 text-end font-bold xl:text-4xl lg:text-4xl md:text-3xl sm:text-2xl xm:text-2xl text-gray-800'>جميع المنتجات</p>
 
 
       <div dir='rtl' className='border w-full border-gray-200 bg-gray-100 grid md:grid-cols-[1fr_1fr_1fr_0.5fr] sm:grid-cols-[1fr_1fr_0.5fr] xm:grid-cols-[1fr_1fr_0.5fr]  xl:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_0.5fr] lg:grid-cols-[1fr_1fr_1fr_1fr_1fr_1fr_0.5fr]  px-6 py-3 rounded-md'>
@@ -67,7 +67,7 @@ const List = ({ token }) => {
         >
           <h1 className='text-right font-bold'>#{index + 1}</h1>
           <img
-            className='xl:w-20 xl:h-20 xm:h-10 xm:w-10 sm:h-15 sm:w-15 md:h-174 md:w-17 lg:h-20 lg:w-20 object-cover rounded-lg shadow-sm ml-auto'
+            className='xl:w-20 xl:h-20 xm:h-10 xm:w-10 sm:h-15 sm:w-15 md:h-17 md:w-17 lg:h-20 lg:w-20 object-cover rounded-lg shadow-sm ml-auto'
             src={product.image[0]}
             alt={product.name}
           />
