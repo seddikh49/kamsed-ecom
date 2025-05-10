@@ -57,7 +57,7 @@ const Confirm = () => {
                             <div className='absolute right-0 top-20'>
                                 <Lottie animationData={animationData2} loop={true} className='w-100' />
                             </div>
-                            <div className='flex justify-end gap-3'>
+                            <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse  xm:flex-col-reverse justify-end gap-3'>
                                 <h1 className='font-bold text-4xl text-white pb-4 bg-orange-400'>{nameConfirmation} </h1>
                                 <h1 className='font-bold text-4xl pb-4'> شكر جزيلا لك </h1>
                             </div>

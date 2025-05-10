@@ -4,7 +4,7 @@ import LatestCollection from '../componets/LatestCollection'
 import { useState ,useEffect } from 'react'
 import BestSellers from '../componets/BestSellers'
 import Policy from '../componets/Policy'
-import NewsLetter from '../componets/NewsLetter'
+
 
 
 const Home = () => {

@@ -144,6 +144,7 @@ const Orders = () => {
           </div>
 
         </div>
+        <h1 dir='rtl' className='xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl xm:text-xl  font-cairo py-5'>الطلبات</h1>
         <div className='flex gap-4 bg-amber-50  justify-center items-center  w-full overflow-hidden rounded-xl border border-gray-300  '>
           <table className="w-full  text-center bg-white  border-gray-300">
             <thead className="bg-gray-100 rounded-md">

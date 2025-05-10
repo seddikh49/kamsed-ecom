@@ -20,9 +20,9 @@ const RelatedProducts = ({category,subCategory,id}) => {
   return (
     <div>
       <div className='text-center mt-10'>
-        <Title text1={'RELATED'} text2={'PRODUCTS'}/>
+        <Title text1={'ذات صلة'} text2={'منتجات'}/>
       </div>
-      <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-5 xm:grid-cols-1 gap-y-6 gap-4'>
+      <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-2 xl:grid-cols-5 xm:grid-cols-1 gap-y-6 gap-10'>
         {relatedProducts.map((rel)=> {
           return(
             <ProductItems key={rel._id} id={rel._id} name={rel.name} image={rel.image[0]} price={rel.price}/>

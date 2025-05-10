@@ -12,6 +12,7 @@ import { FaPhone } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
 import { toast } from 'react-toastify'
 import { ClipLoader } from "react-spinners";
+import RelatedProducts from '../componets/RelatedProducts'
 
 
 
@@ -149,8 +150,9 @@ const Product = () => {
 
 
   return product && (
-    <div className='w-full max-h-max gap-10  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col '>
-      <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center sm:justify-start   '>
+    <div className='w-full max-h-max  mt-10 '>
+     <div className='w-full max-h-max gap-10  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col mt-10 '>
+     <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center sm:justify-start   '>
         <div className='flex flex-col items-end gap-2 pb-3 sm:ml-auto' >
           <p className='text-2xl font-bold'>{product.name}</p>
           <div className='flex text-2xl font-bold'>
@@ -159,25 +161,21 @@ const Product = () => {
           </div>
         </div>
 
-
-
-
-
-
-
         <form onSubmit={handleSubmit} className='flex z-1  flex-col xl:w-[550px] md:w-full  p-7 shadow-[0px_0px_5px_0px_rgba(0,_0,_0,_0.8)] lg:w-[450px] sm:w-full  gap-5 xl:items-end sm:items-center' action="">
-          <div className='xl:w-full md:w-full lg:w-full  sm:w-full flex gap-5 xl:flex-row md:flex-row lg:flex-row  sm:flex-col xm:flex-col '>
+          <div dir='rtl' className='xl:w-full md:w-full lg:w-full  sm:w-full flex gap-5 xl:flex-row md:flex-row lg:flex-row  sm:flex-col xm:flex-col '>
+          <div className='xl:w-1/2 relative sm:w-full xm:w-full'>
+              <input onChange={(e) => setfullName(e.target.value)} value={fullName} className='w-1/2 bg-gray-100 py-3 font-bold px-10 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' placeholder='الاسم الكامل' type="text" />
+              <MdAccountCircle className='absolute top-[13px] left-1 text-2xl text-gray-600' />
+            </div>
+           
             <div className='xl:w-1/2 relative  sm:w-full xm:w-full'>
               <input onChange={(e) => setPhone(e.target.value)} value={phone} className='w-full bg-gray-100 py-3 font-bold px-9 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' type="text" id="age" min="1" max="100" placeholder=" رقم الهاتف" />
               <FaPhone className='absolute top-[13px] left-[7px] text-2xl text-gray-600 ' />
             </div>
 
-            <div className='xl:w-1/2 relative sm:w-full xm:w-full'>
-              <input onChange={(e) => setfullName(e.target.value)} value={fullName} className='w-1/2 bg-gray-100 py-3 font-bold px-10 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' placeholder='الاسم الكامل' type="text" />
-              <MdAccountCircle className='absolute top-[13px] left-1 text-2xl text-gray-600' />
-            </div>
+        
           </div>
-          <div className='xl:w-full sm:flex-col-reverse xm:flex-col-reverse md:w-full sm:w-full lg:w-full flex gap-5  xl:flex-row md:flex-row lg:flex-row  '>
+          <div  className='xl:w-full sm:flex-col-reverse xm:flex-col-reverse md:w-full sm:w-full lg:w-full flex gap-5  xl:flex-row md:flex-row lg:flex-row  '>
             <select onChange={(e) => setCommune(e.target.value)} value={commune} className='w-1/2 bg-gray-100 text-gray-600 py-3 font-sans font-bold px-2 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' name="" id="">
               <option value="">البلدية</option>
               {communess.map((wil, index) => {
@@ -267,6 +265,12 @@ const Product = () => {
           })}
         </div>
       </div>
+     </div>
+
+     <div className='mt-15'>
+      <RelatedProducts category={product.category} id={product.id}/>
+
+      </div>   
     </div>
 
   )

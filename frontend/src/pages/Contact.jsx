@@ -1,7 +1,7 @@
 import React from 'react'
 import Title from '../componets/Title'
 import { assets } from '../‏‏assets/frontend_assets/assets'
-import NewsLetter from '../componets/NewsLetter'
+
 
 const Contact = () => {
   return (
