@@ -14,9 +14,7 @@ const Home = () => {
     <div className='w-full '>
        <Hero/>
        <LatestCollection/> 
-       <BestSellers/>
        <Policy/>
-       <NewsLetter/>
     </div>
   )
 }

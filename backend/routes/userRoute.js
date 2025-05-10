@@ -12,8 +12,9 @@ const userRouter = express.Router()
 userRouter.post('/register', registerUser)
 userRouter.post('/login', loginUser)
 userRouter.post('/admin', adminLogin)
-userRouter.post('/verify-token', authAdmin, (req, res) => {
-    return res.json({ role: "admin", msg: 'Token verified seccussfully' })
+userRouter.post('/verify-token', authAdmin, async(req, res) => {
+    const { role, id } = req.user
+    return res.json({ role, msg: 'Token verified seccussfully', id: id })
 })
 
 

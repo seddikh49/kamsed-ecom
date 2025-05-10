@@ -24,14 +24,15 @@ const App = () => {
 
   const verifyToken = async () => {
     if (!token) {
-      console.log("message")
       setIsAdmin(false)
       return
     } else {
+      console.log('else')
       try {
         const response = await axios.post(`${backEndUrl}/api/user/verify-token`, {}, {
           headers: { token: token }
         })
+        console.log(response)
         if (response.data.role === "admin") {
           setIsAdmin(true)
         } else {
@@ -44,6 +45,8 @@ const App = () => {
       }
     }
   }
+
+
   useEffect(() => {
     localStorage.setItem('token', token)
     verifyToken()

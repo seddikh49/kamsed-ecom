@@ -24,3 +24,7 @@ a.active hr {
         color: azure;
     }
 }
+
+body {
+    font-family: "Cairo", sans-serif;
+}

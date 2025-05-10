@@ -6,10 +6,11 @@ const authAdmin = async(req, res, next) => {
         if (!token) {
             return res.json({ msg: "you don't have authorization to access this api" })
         }
-        const token_decode = jwt.verify(token, process.env.JWT_SECRET)
-        if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
-            return res.json({ token: "you don't have authorization to access this token" })
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        if (decoded.role !== 'admin') {
+            return res.status(403).json({ msg: "Access denied: Admins only" })
         }
+        req.user = decoded
         next()
     } catch (error) {
         console.log(error)

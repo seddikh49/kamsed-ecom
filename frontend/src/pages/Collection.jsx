@@ -3,12 +3,14 @@ import ProductItems from '../componets/ProductItems';
 import Title from '../componets/Title';
 import { GoChevronDown } from "react-icons/go";
 import { ShopContext } from '../context/shopContext';
+import { IoFilter } from "react-icons/io5";
+
 
 
 
 const Collection = () => {
 
-  const { products, search, wilayas, communes,rotateIcon } = useContext(ShopContext)
+  const { products, search, wilayas, communes, rotateIcon } = useContext(ShopContext)
 
 
   const [category, setCategory] = useState([])
@@ -96,14 +98,58 @@ const Collection = () => {
 
 
   return (
-    <div className=' w-full flex xl:flex-row  md:flex-col xm:flex-col sm:flex-col lg:flex-row  justify-between '>
-      <div className='sm:w-full  md:w-full xl:w-72 lg:w-52 flex flex-col gap-y-5 xl:p-8 xm:pl-8 '>
-        <h1 onClick={showCategoriesHandle} className='font-poppins font-bold text-gray-600 text-2xl xl:mb-8 lg:mb-8 flex items-center gap-1 '>FILTERS
+    <div className=' w-full flex xl:flex-row  md:flex-col-reverse xm:flex-col-reverse sm:flex-col-reverse lg:flex-row  justify-between  '>
+
+
+      <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 ' dir='rtl'>
+        <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
+          {/* <div className='border bg-gray-100 border-gray-300 max-w-36 h-max '>
+            <select dir="rtl" onChange={sorted} className='font-bold text-right py-3 px-2  ' name="" id="">
+              <option className='' value="">  الترتيب حسب :</option>
+              <option className='font-bold' value="low"> الأرخص</option>
+              <option className='font-bold' value="high">الأغلى</option>
+            </select>
+            <div />
+          </div> */}
+
+<div className="relative w-44">
+  <select
+    dir="rtl"
+    onChange={sorted}
+    className="appearance-none w-full bg-white border border-gray-300 rounded-md py-3 px-4 pr-10 text-right font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition"
+  >
+    <option value="">الترتيب حسب :</option>
+    <option value="low">الأرخص</option>
+    <option value="high">الأغلى</option>
+  </select>
+
+  {/* أيقونة السهم للأسفل */}
+  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 text-gray-600">
+  <IoFilter />
+
+  </div>
+</div>
+
+
+          <Title text1={'المنتجات'} text2={'جميع'} />
+        </div>
+        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
+          {allProducts.map((item) => {
+            return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
+          })}
+        </div>
+      </div>
+
+
+
+
+      <div className='sm:w-full mt-5  md:w-full xl:w-72 lg:w-52 flex flex-col gap-y-2 xl:p-8 xm:pl-8 ' dir='rtl'>
+        <h1 onClick={showCategoriesHandle} className='font-cairo  font-bold text-gray-600 text-2xl xl:mb-8 lg:mb-8 flex items-center gap-1  '>الفلترة
           <span className='xl:hidden lg:hidden z-2 '><GoChevronDown className={`${icon ? 'rotate-0' : 'rotate-180'} ${rotateIcon ? 'inline-block' : 'hidden'}  transition-all duration-500`} />
           </span>
         </h1>
         <div className={`border w-full  border-gray-300 flex flex-col gap-5 p-5 xl:flex  lg:flex ${showCategories}  xm:${showCategories} md:${showCategories}`}>
-          <h1 className='font-poppins text-gray-800 text-xl'>CATEGORIES</h1>
+          <h1 className=' text-gray-800 text-xl font-cairo font-bold '>الفئة</h1>
           <div className='flex flex-col gap-2   '>
             <div className='flex gap-2'>
               <input className='' onChange={filterCategory} type="checkbox" value={'Men'} />
@@ -121,7 +167,7 @@ const Collection = () => {
 
         </div>
         <div className={`border   border-gray-300 flex flex-col gap-5 p-5 xl:flex $ lg:flex ${showCategories} xm:${showCategories} md:${showCategories}`}>
-          <h1 className='font-poppins text-gray-800 text-xl'>TYPE</h1>
+          <h1 className='font-cairo font-bold text-gray-800 text-xl'>النوع</h1>
           <div className='flex flex-col gap-2'>
             <div className='flex gap-2'>
               <input className='' onChange={filterSubCategory} type="checkbox" value={'Topwear'} />
@@ -137,28 +183,6 @@ const Collection = () => {
             </div>
           </div>
 
-        </div>
-      </div>
-
-      <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 '>
-        <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
-          <div className='border bg-gray-100 border-gray-300 max-w-36 h-max '>
-            <div>
-              <select dir="rtl" onChange={sorted} className='font-bold text-right py-3 px-2  ' name="" id="">
-                <option className='' value="">  الترتيب حسب :</option>
-                <option className='font-bold' value="low"> الأرخص</option>
-                <option className='font-bold' value="high">الأغلى</option>
-              </select>
-              <div />
-              <div />
-            </div>
-          </div>
-          <Title text1={'المنتجات'} text2={'جميع'} />
-        </div>
-        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
-          {allProducts.map((item) => {
-            return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
-          })}
         </div>
       </div>
 

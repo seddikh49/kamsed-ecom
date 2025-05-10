@@ -140,27 +140,34 @@ const Product = () => {
   }
 
 
-  useEffect(() => {
-    fetch("https://assets10.lottiefiles.com/packages/lf20_usmfx6bp.json")
-      .then((res) => res.json())
-      .then(setAnimationData);
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://assets10.lottiefiles.com/packages/lf20_usmfx6bp.json")
+  //     .then((res) => res.json())
+  //     .then(setAnimationData);
+  // }, []);
 
 
 
   return product && (
     <div className='w-full max-h-max gap-10  flex xl:flex-row lg:flex-row md:flex-col sm:flex-col xm:flex-col '>
       <div className='xl:w-1/2   lg:w-1/2 md:w-full  h-max flex flex-col md:items-center  lg:items-end xl:items-end sm:items-center sm:justify-start   '>
-        <div className='flex flex-col items-end gap-2 pb-3' >
+        <div className='flex flex-col items-end gap-2 pb-3 sm:ml-auto' >
           <p className='text-2xl font-bold'>{product.name}</p>
           <div className='flex text-2xl font-bold'>
             <h1>{currency} </h1>
             <h1>{product.price}  </h1>
           </div>
         </div>
-        <form onSubmit={handleSubmit} className='flex  flex-col xl:w-[550px] md:w-[550px]  p-7 shadow-[0px_0px_5px_0px_rgba(0,_0,_0,_0.8)] lg:w-[450px] sm:w-[450px]  gap-5 xl:items-end sm:items-center' action="">
+
+
+
+
+
+
+
+        <form onSubmit={handleSubmit} className='flex z-1  flex-col xl:w-[550px] md:w-full  p-7 shadow-[0px_0px_5px_0px_rgba(0,_0,_0,_0.8)] lg:w-[450px] sm:w-full  gap-5 xl:items-end sm:items-center' action="">
           <div className='xl:w-full md:w-full lg:w-full  sm:w-full flex gap-5 xl:flex-row md:flex-row lg:flex-row  sm:flex-col xm:flex-col '>
-            <div className='xl:w-1/2 relative sm:w-full xm:w-full'>
+            <div className='xl:w-1/2 relative  sm:w-full xm:w-full'>
               <input onChange={(e) => setPhone(e.target.value)} value={phone} className='w-full bg-gray-100 py-3 font-bold px-9 border-1 sm:w-full xm:w-full focus:outline-blue-500 border-gray-600/50 rounded-[5px]' type="text" id="age" min="1" max="100" placeholder=" رقم الهاتف" />
               <FaPhone className='absolute top-[13px] left-[7px] text-2xl text-gray-600 ' />
             </div>
@@ -246,7 +253,7 @@ const Product = () => {
           </div>
 
 
-        </form>
+        </form> 
       </div>
 
 

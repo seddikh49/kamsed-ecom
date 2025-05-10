@@ -74,7 +74,9 @@ const adminLogin = async(req, res) => {
     const { email, password } = req.body
     if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
 
-        const token = jwt.sign(email + password, process.env.JWT_SECRET)
+        const token = jwt.sign({ email, role: 'admin' }, // هذا ما سيتم تخزينه داخل التوكن
+            process.env.JWT_SECRET, { expiresIn: '1h' } // صلاحية التوكن: ساعة واحدة
+        )
         res.status(201).json({ success: true, token: token })
     } else {
         res.json({ success: false, msg: 'wrong email or password' })
