@@ -141,12 +141,6 @@ const Product = () => {
   }
 
 
-  // useEffect(() => {
-  //   fetch("https://assets10.lottiefiles.com/packages/lf20_usmfx6bp.json")
-  //     .then((res) => res.json())
-  //     .then(setAnimationData);
-  // }, []);
-
 
 
   return product && (

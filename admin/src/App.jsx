@@ -26,13 +26,12 @@ const App = () => {
     if (!token) {
       setIsAdmin(false)
       return
-    } else {
-      console.log('else')
+    } else{
+      
       try {
         const response = await axios.post(`${backEndUrl}/api/user/verify-token`, {}, {
           headers: { token: token }
         })
-        console.log(response)
         if (response.data.role === "admin") {
           setIsAdmin(true)
         } else {
