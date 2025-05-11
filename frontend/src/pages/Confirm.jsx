@@ -66,8 +66,16 @@ const Confirm = () => {
                                 .نحن دائمًا هنا لخدمتك ونتطلع إلى تقديم أفضل تجربة ممكنة</p>
                         </div>
                     </div>
-                    <div className='bg-gray-100/50 rounded-t-md border-1  border-black/20 xl:w-1/2 lg:w-1/2 m-auto mt-10 '>
-                        <div className='flex justify-between items-center p-3 bg-orange-400'>
+
+
+
+
+                  
+
+
+
+                     <div className='bg-gray-100/50  border-1  border-black/20 xl:w-1/2 lg:w-1/2 m-auto mt-10 shadow-lg rounded-xl '>
+                        <div className='flex justify-between items-center p-3  bg-gradient-to-r from-orange-400 to-orange-500 rounded-t-xl'>
                             <FaCartShopping className='text-2xl text-white' />
                             <h1 className='text-end  font-bold text-white text-xl pb-2'>: تفاصيل الطلب </h1>
                         </div>
@@ -106,28 +114,28 @@ const Confirm = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            ) :
+                </div> 
+                    ) :
 
-                <div className='flex justify-between items-center flex-col gap-8'>
-                    <h1 className='xl:text-6xl lg:text-5xl md:text-5xl sm:text-5xl xm:text-4xl  '>أدخل معلومات الشراء</h1>
-                    <NavLink className={'bg-orange-400 rounded-lg font-bold px-4 flex items-center justify-center text-white  h-13 text-xl'} to={"/collection"} >الذهاب الى صفحة المنتجات</NavLink>
+                    <div className='flex justify-between items-center flex-col gap-8'>
+                        <h1 className='xl:text-6xl lg:text-5xl md:text-5xl sm:text-5xl xm:text-4xl  '>أدخل معلومات الشراء</h1>
+                        <NavLink className={'bg-orange-400 rounded-lg font-bold px-4 flex items-center justify-center text-white  h-13 text-xl'} to={"/collection"} >الذهاب الى صفحة المنتجات</NavLink>
 
 
-                </div>
+                    </div>
 
             }
 
-        </div>
-    )
+                </div>
+            )
 }
 
-export default Confirm
+            export default Confirm
 
 
 
 
-{/* <div className='flex justify-evenly xm:space-y-5 items-center md:flex-col sm:flex-col xm:flex-col xl:flex-row lg:flex-row'>
+            {/* <div className='flex justify-evenly xm:space-y-5 items-center md:flex-col sm:flex-col xm:flex-col xl:flex-row lg:flex-row'>
 <div>
     <Lottie animationData={animationData} loop={true} className='xl:w-[500px] lg:w-100 xm:w-full sm:w-full md:w-[500px]' />
 </div>
