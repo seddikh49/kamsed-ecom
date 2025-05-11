@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import axios from 'axios';
 import { FaCartShopping } from "react-icons/fa6";
 import { NavLink } from 'react-router-dom';
-
+import money from '../money.json'
 
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
@@ -58,7 +58,7 @@ const Confirm = () => {
                                 <Lottie animationData={animationData2} loop={true} className='w-100' />
                             </div>
                             <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse  xm:flex-col-reverse justify-end gap-3'>
-                                <h1 className='font-bold text-4xl text-white pb-4 bg-orange-400'>{nameConfirmation} </h1>
+                                <h1 className='font-bold text-4xl text-white  bg-orange-400'>{nameConfirmation} </h1>
                                 <h1 className='font-bold text-4xl pb-4'> شكر جزيلا لك </h1>
                             </div>
                             <h2 className='xl:text-4xl lg:text-3xl md:text-xl font-bold pb-4'>على ثقتك بنا وعلى طلبك الكريم</h2>
@@ -95,8 +95,12 @@ const Confirm = () => {
                             </div>
                             <div className='flex justify-between gap-2 font-bold text-lg border-t-1 border-black/20 p-3'>
                                 <div className='flex gap-2 '>
-                                    <h1  className='font-bold'>{currency}</h1>
-                                    <h1> {totalPrice} </h1>
+                                    <h1 className='font-bold pt-2'>{currency}</h1>
+                                    <h1 className='pt-2'> {totalPrice} </h1>
+                                    <Lottie className='w-12 '
+                                        animationData={money}
+                                        loop={true}
+                                    />
                                 </div>
                                 <h1 className='text-xl'> : السعر الاجمالي </h1>
                             </div>
@@ -104,16 +108,16 @@ const Confirm = () => {
                     </div>
                 </div>
             ) :
-               
-                <div className='flex justify-between items-center flex-col gap-8'>
-                     <h1 className='xl:text-6xl lg:text-5xl md:text-5xl sm:text-5xl xm:text-4xl  '>أدخل معلومات الشراء</h1>
-                     <NavLink className={'bg-orange-400 rounded-lg font-bold px-4 flex items-center justify-center text-white  h-13 text-xl'} to={"/collection"} >الذهاب الى صفحة المنتجات</NavLink>
 
-                
+                <div className='flex justify-between items-center flex-col gap-8'>
+                    <h1 className='xl:text-6xl lg:text-5xl md:text-5xl sm:text-5xl xm:text-4xl  '>أدخل معلومات الشراء</h1>
+                    <NavLink className={'bg-orange-400 rounded-lg font-bold px-4 flex items-center justify-center text-white  h-13 text-xl'} to={"/collection"} >الذهاب الى صفحة المنتجات</NavLink>
+
+
                 </div>
-                 
-                 }
-             
+
+            }
+
         </div>
     )
 }

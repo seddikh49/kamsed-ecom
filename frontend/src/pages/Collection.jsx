@@ -103,37 +103,28 @@ const Collection = () => {
 
       <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 ' dir='rtl'>
         <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
-          {/* <div className='border bg-gray-100 border-gray-300 max-w-36 h-max '>
-            <select dir="rtl" onChange={sorted} className='font-bold text-right py-3 px-2  ' name="" id="">
-              <option className='' value="">  الترتيب حسب :</option>
-              <option className='font-bold' value="low"> الأرخص</option>
-              <option className='font-bold' value="high">الأغلى</option>
+
+          <div className="relative w-44">
+            <select
+              dir="rtl"
+              onChange={sorted}
+              className="appearance-none w-full bg-white border border-gray-300 rounded-md py-3 px-4 pr-10 text-right font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition"
+            >
+              <option value="">الترتيب حسب :</option>
+              <option value="low">الأرخص</option>
+              <option value="high">الأغلى</option>
             </select>
-            <div />
-          </div> */}
 
-<div className="relative w-44">
-  <select
-    dir="rtl"
-    onChange={sorted}
-    className="appearance-none w-full bg-white border border-gray-300 rounded-md py-3 px-4 pr-10 text-right font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition"
-  >
-    <option value="">الترتيب حسب :</option>
-    <option value="low">الأرخص</option>
-    <option value="high">الأغلى</option>
-  </select>
+            {/* أيقونة السهم للأسفل */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 text-gray-600">
+              <IoFilter />
 
-  {/* أيقونة السهم للأسفل */}
-  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-2 text-gray-600">
-  <IoFilter />
-
-  </div>
-</div>
-
+            </div>
+          </div>
 
           <Title text1={'المنتجات'} text2={'جميع'} />
         </div>
-        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-4 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
+        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-5 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
           {allProducts.map((item) => {
             return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
           })}
