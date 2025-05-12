@@ -47,7 +47,7 @@ const Login = ({setToken}) => {
                 </div>
                 <div className='w-full flex  flex-col gap-1 font-poppins'>
                     <p>Password</p>
-                    <input onChange={(e)=> setPassword(e.target.value)} value={password} placeholder='Enter your password' required className='w-full px-2 py-2 border border-gray-300' type="text" />
+                    <input onChange={(e)=> setPassword(e.target.value)} value={password} placeholder='Enter your password'  required className='w-full px-2 py-2 border border-gray-300' type="password" />
                 </div>
                 <button className='mt-5 font-poppins w-full py-3 bg-black rounded-md text-white'>Login</button>
             </form>

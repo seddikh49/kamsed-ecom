@@ -22,9 +22,7 @@ const Contact = () => {
           <button className='border hover:bg-black/50 hover:text-amber-50 transition-all py-3 px-8 duration-500'>Explore Jobs</button>
         </div>   
       </div>
-      <div className='mt-10'>
-      <NewsLetter/>
-      </div>
+  
     </div>
   )
 }
