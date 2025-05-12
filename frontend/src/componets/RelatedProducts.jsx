@@ -17,7 +17,9 @@ const RelatedProducts = ({category,id}) => {
   useEffect(() => {
     filterProductByCatAndSub()
   }, []);
-  return (
+
+
+  return relatedProducts.length && (
     <div>
       <div className='text-center mt-10'>
         <Title text1={'ذات صلة'} text2={'منتجات'}/>

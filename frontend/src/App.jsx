@@ -1,9 +1,7 @@
 import React from 'react'
 import { Routes,Route } from 'react-router-dom'
 import Home from '../src/pages/Home'
-import Login from '../src/pages/Login'
 import Collection from '../src/pages/Collection'
-import Card from '../src/pages/Card'
 import Contact from '../src/pages/Contact'
 import Product from '../src/pages/Product'
 import Orders from '../src/pages/Orders'
@@ -24,9 +22,7 @@ const App = () => {
       <Route path='/' element={<Home/>} /> 
       <Route path='/about' element={<About/>} />  
       <Route path='/collection' element={<Collection/>} /> 
-      <Route path='/card' element={<Card/>} /> 
       <Route path='/contact' element={<Contact/>} /> 
-      <Route path='/login' element={<Login/>} /> 
       <Route path='/product/:productId' element={<Product/>} /> 
       <Route path='/orders' element={<Orders/>} /> 
       <Route path='/confirm' element={<Confirm/>} /> 

@@ -262,8 +262,7 @@ const Product = () => {
      </div>
 
      <div className='mt-15'>
-      <RelatedProducts category={product.category} id={product.id}/>
-
+      <RelatedProducts category={product.category} id={product._id}/>
       </div>   
     </div>
 
