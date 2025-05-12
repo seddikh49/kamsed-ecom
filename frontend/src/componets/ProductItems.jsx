@@ -8,7 +8,7 @@ const ProductItems = ({ id, name, image, price }) => {
   const { currency } = useContext(ShopContext);
 
   return(
-<div className="bg-white shadow-lg rounded-b-2xl overflow-hidden border border-gray-300 transition-transform duration-300 hover:scale-105 flex flex-col h-max">
+<div className="bg-white shadow-lg rounded-b-2xl overflow-hidden border p-2 border-gray-300 transition-transform duration-300 hover:scale-105 flex flex-col h-max">
   <Link to={`/product/${id}`} className="flex flex-col h-full">
     
     {/* صورة المنتج بنسبة 1:1.2 أو يمكنك استخدام ratio ثابت حسب تصميمك */}
@@ -16,7 +16,7 @@ const ProductItems = ({ id, name, image, price }) => {
       <img
         src={image}
         alt={name}
-        className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+        className="object-cover w-full h-full transition-transform duration-300 hover:scale-110 rounded-t-md"
       />
     </div>
 

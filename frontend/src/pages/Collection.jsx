@@ -104,6 +104,7 @@ const Collection = () => {
       <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 ' dir='rtl'>
         <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
 
+          <Title text1={'المنتجات'} text2={'جميع'} />
           <div className="relative w-44">
             <select
               dir="rtl"
@@ -121,10 +122,8 @@ const Collection = () => {
 
             </div>
           </div>
-
-          <Title text1={'المنتجات'} text2={'جميع'} />
         </div>
-        <div className='mt-10 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-5 xm:grid-cols-1 gap-y-6 space-y-5 gap-10  '>
+        <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-4 xm:grid-cols-1 gap-y-5 space-y-5  gap-10  '>
           {allProducts.map((item) => {
             return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
           })}

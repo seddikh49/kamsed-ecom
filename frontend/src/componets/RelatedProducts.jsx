@@ -3,13 +3,13 @@ import { ShopContext } from '../context/shopContext'
 import Title from './Title';
 import ProductItems from './ProductItems';
 
-const RelatedProducts = ({category,subCategory,id}) => {
+const RelatedProducts = ({category,id}) => {
   const {products} = useContext(ShopContext)
   const [relatedProducts, setrelatedProducts] = useState([]);
   const filterProductByCatAndSub = () => {
     let copyProducts = [...products]
     copyProducts = copyProducts.filter((pro)=>{
-      return pro.category === category && pro.subCategory === subCategory && pro._id !== id
+      return pro.category === category  && pro._id !== id
     })
     setrelatedProducts(copyProducts.slice(0,5))
   }

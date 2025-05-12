@@ -5,18 +5,18 @@ const Footer = () => {
 
   return (
     <div className=''>
-      <div className='xl:flex  xl:justify-around sm:justify-center items-start mt-20 mb-10 '>
+      <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col xm:flex-col  items-start mt-10 mb-10 gap-10 justify-evenly '>
         
       <div className='flex flex-col gap-5' dir='rtl'>
           <h1 className='text-2xl font-extrabold text-gray-600 font-cairo '>تواصل معنا</h1>
           <ul>
-            <li className='text-lg font-abold text-gray-600 font-poppins'>+213 664 75 32 37</li>
-            <li className='text-lg font-abold text-gray-600 font-poppins'>contact@sedever.com</li>
+            <li className='text-lg font-abold text-gray-600 font-poppins'>0664753237</li>
+            <li className='text-lg font-abold text-gray-600 font-poppins'>seddikh49@gmail.com</li>
           </ul>
         </div>
         
-        <div className='flex flex-col gap-5 mb-10'>
-          <h1 className='text-2xl font-extrabold text-gray-600 font-cairo' style={{ direction: 'rtl' }}>الشركة</h1>
+        <div className='flex flex-col gap-3' dir='rtl'>
+          <h1 className='text-2xl font-extrabold text-gray-600 font-cairo' >المتجر</h1>
           <ul style={{ direction: 'rtl' }}>
             <li className='text-lg font-abold text-gray-600 font-cairo'>الرئيسية</li>
             <li className='text-lg font-abold text-gray-600 font-cairo'>من نحن</li>
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
 
 
-        <div className='xl:max-w-1/2 sm:w-full mb-10 flex flex-col sm:flex-col  items-start  gap-5 justify-start ' dir='rtl'>
+        <div className='max-w-1/3 sm:w-full  flex flex-col sm:flex-col gap-4 justify-start ' dir='rtl'>
           <h1 className="text-4xl   font-extrabold  text-gray-600 font-cairo ">
             كامسد<span className="text-orange-400 aspect-square font-cairo">.</span>
           </h1>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
       </div>
  
-      <div className='text-center  py-6 text-xl font-light text-gray-600 font-poppins border-gray-400  border-t-1'>Copyright {date.getFullYear()}@forever.com - All Right Reserved </div>
+      <div className='text-center  py-6 text-xl font-light text-gray-600 font-cairo border-gray-400  border-t-1'>@kamsed.com  {date.getFullYear()} - كل الحقوق محفوظة </div>
     </div>
   )
 }
