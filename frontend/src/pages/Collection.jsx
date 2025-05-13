@@ -7,12 +7,19 @@ import { IoFilter } from "react-icons/io5";
 
 import { Helmet } from "react-helmet";
 
+import { useLocation } from 'react-router-dom';
+
+
+
+
+
 
 
 
 
 const Collection = () => {
-
+  const location = useLocation();
+  const canonicalUrl = `https://store.kamsed.com${location.pathname}`;
   const { products, search, wilayas, communes, rotateIcon } = useContext(ShopContext)
 
 
@@ -103,14 +110,12 @@ const Collection = () => {
   return (
     <div className=' w-full flex xl:flex-row  md:flex-col-reverse xm:flex-col-reverse sm:flex-col-reverse lg:flex-row  justify-between  '>
       <Helmet>
+      <link rel="canonical" href={canonicalUrl} />
       <meta name="description" content="استعرض مجموعتنا المتنوعة من المنتجات عالية الجودة – تسوق الآن بأسعار مميزة وتوصيل سريع لجميع الولايات."/>
-
         <title>store.kamsed - المنتجات</title>
       </Helmet>
-
       <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 ' dir='rtl'>
         <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
-
           <Title text1={'المنتجات'} text2={'جميع'} />
           <div className="relative w-44">
             <select

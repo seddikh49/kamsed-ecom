@@ -5,13 +5,19 @@ import { NavLink } from 'react-router-dom'
 import Lottie from 'lottie-react'
 import contact from '../contact.json'
 import { Helmet } from "react-helmet";
+import { useLocation } from 'react-router-dom';
+
 
 
 
 const Contact = () => {
+  const location = useLocation();
+  const canonicalUrl = `https://store.kamsed.com${location.pathname}`;
   return (
     <div className='flex flex-col  justify-center md:items-center sm:items-center xl:items-center lg:items-center xm:items-end mb-23 '>
       <Helmet>
+      <link rel="canonical" href={canonicalUrl} />
+
         <title>store.kamsed - تواصل معنا</title>
         <meta name="description" content="هل لديك سؤال أو استفسار؟ تواصل معنا الآن عبر النموذج أو وسائل الاتصال المتاحة – نحن هنا لخدمتك بكل سرور."/>
       </Helmet>

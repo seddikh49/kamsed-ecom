@@ -3,14 +3,20 @@ import Title from '../componets/Title'
 import Lottie from 'lottie-react'
 import about from '../about.json'
 import { Helmet } from "react-helmet";
+import { useLocation } from 'react-router-dom';
 
 
 const About = () => {
+  const location = useLocation();
+  const canonicalUrl = `https://store.kamsed.com${location.pathname}`;
+  
+
   return (
     <div className='mt-10'>
       <Helmet>
         <title>store.kamsed - من نحن</title>
         <meta name="description" content="تعرف على قصتنا ورؤيتنا في تقديم أفضل المنتجات والخدمات لعملائنا. التزامنا بالجودة والرضا يجعلنا خيارك الأول للتسوق."/>
+        <link rel="canonical" href={canonicalUrl} />
 
       </Helmet>
       <div className='text-center text-2xl'>

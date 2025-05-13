@@ -23,9 +23,10 @@ const ProductItems = ({ id, name, image, price,index }) => {
         {/* صورة المنتج بنسبة 1:1.2 أو يمكنك استخدام ratio ثابت حسب تصميمك */}
         <div className="bg-gray-100  overflow-hidden">
           <img
+          loading='lazy'
             src={image}
             alt={name}
-            className="object-cover w-full h-full transition-transform duration-300 hover:scale-110 max-h-72 rounded-t-md"
+            className="object-cover xl:w-72 xm:w-full md:w-full sm:w-full lg:w-72 transition-transform duration-300 hover:scale-110 max-h-80  rounded-t-md"
           />
         </div>
 
