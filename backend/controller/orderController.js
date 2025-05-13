@@ -1,28 +1,63 @@
+import { orderValidationSchema } from "../validator/validate.js";
 import orderModel from "../models/orderModel.js";
 
+// const addOrder = async(req, res) => {
+
+//     try {
+//         const { fullName, phone, wilaya, commune, productName, quantity, status, notification } = req.body;
+//         const orderData = await orderModel.findOne({ phone });
+//         if (orderData) {
+//             const msg = {}
+//             msg.message = "رقم الهاتف هذا تم الطلب به مسبقا "
+//             return res.json({ success: false, msg: msg });
+//         }
+//         const newOrder = new orderModel({
+//             fullName,
+//             phone,
+//             wilaya,
+//             commune,
+//             productName,
+//             quantity,
+//             status,
+//             notification
+//         });
+//         const order = await newOrder.save();
+//         res.json({ success: true, msg: "تم طلب المنتج بنجاح " });
+//     } catch (error) {
+//         res.json({ success: false, msg: error })
+//     }
+// };
+
 const addOrder = async(req, res) => {
-    try {
-        const { fullName, phone, wilaya, commune, productName, quantity, status, notification } = req.body;
-        const orderData = await orderModel.findOne({ phone });
-        if (orderData) {
-            const msg = {}
-            msg.message = "رقم الهاتف هذا تم الطلب به مسبقا "
-            return res.json({ success: false, msg: msg });
-        }
-        const newOrder = new orderModel({
-            fullName,
-            phone,
-            wilaya,
-            commune,
-            productName,
-            quantity,
-            status,
-            notification
+    // Validate request body
+    const { error, value } = orderValidationSchema.validate(req.body, {
+        stripUnknown: true, // إزالة الحقول الغير معروفة
+        abortEarly: false, // عرض جميع الأخطاء
+    });
+
+
+    if (error) {
+        return res.status(400).json({
+            success: false,
+            message: 'خطأ في التحقق من البيانات',
+            message: error.details[0].message
         });
+    }
+
+    try {
+        const newOrder = new orderModel(value); // Use validated value
         const order = await newOrder.save();
-        res.json({ success: true, msg: "تم طلب المنتج بنجاح " });
+        res.status(201).json({
+            success: true,
+            message: 'تم طلب المنتج بنجاح',
+        });
     } catch (error) {
-        res.json({ success: false, msg: error })
+
+        res.status(500).json({
+            success: false,
+            message: 'حدث خطأ أثناء حفظ الطلب',
+            error: error.message
+        });
     }
 };
 

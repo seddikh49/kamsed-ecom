@@ -58,7 +58,7 @@ const Confirm = () => {
                                 <Lottie animationData={animationData2} loop={true} className='w-100' />
                             </div>
                             <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse  xm:flex-col-reverse justify-end gap-3'>
-                                <h1 className='font-bold text-4xl text-white  bg-orange-400'>{nameConfirmation} </h1>
+                                <h1 className='font-bold text-4xl text-white'><span className='bg-orange-400 '>{nameConfirmation} </span></h1>
                                 <h1 className='font-bold text-4xl pb-4'> شكر جزيلا لك </h1>
                             </div>
                             <h2 className='xl:text-4xl lg:text-3xl md:text-xl font-bold pb-4'>على ثقتك بنا وعلى طلبك الكريم</h2>
@@ -66,12 +66,6 @@ const Confirm = () => {
                                 .نحن دائمًا هنا لخدمتك ونتطلع إلى تقديم أفضل تجربة ممكنة</p>
                         </div>
                     </div>
-
-
-
-
-                  
-
 
 
                      <div className='bg-gray-100/50  border-1  border-black/20 xl:w-1/2 lg:w-1/2 m-auto mt-10 shadow-lg rounded-xl '>

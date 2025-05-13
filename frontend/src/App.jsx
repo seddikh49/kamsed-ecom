@@ -4,7 +4,6 @@ import Home from '../src/pages/Home'
 import Collection from '../src/pages/Collection'
 import Contact from '../src/pages/Contact'
 import Product from '../src/pages/Product'
-import Orders from '../src/pages/Orders'
 import About from '../src/pages/About'
 import Navbar from './componets/Navbar'
 import Footer from './componets/Footer'
@@ -24,7 +23,6 @@ const App = () => {
       <Route path='/collection' element={<Collection/>} /> 
       <Route path='/contact' element={<Contact/>} /> 
       <Route path='/product/:productId' element={<Product/>} /> 
-      <Route path='/orders' element={<Orders/>} /> 
       <Route path='/confirm' element={<Confirm/>} /> 
       </Routes>
       <Footer/>

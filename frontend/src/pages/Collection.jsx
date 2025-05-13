@@ -5,6 +5,9 @@ import { GoChevronDown } from "react-icons/go";
 import { ShopContext } from '../context/shopContext';
 import { IoFilter } from "react-icons/io5";
 
+import { Helmet } from "react-helmet";
+
+
 
 
 
@@ -99,7 +102,11 @@ const Collection = () => {
 
   return (
     <div className=' w-full flex xl:flex-row  md:flex-col-reverse xm:flex-col-reverse sm:flex-col-reverse lg:flex-row  justify-between  '>
+      <Helmet>
+      <meta name="description" content="استعرض مجموعتنا المتنوعة من المنتجات عالية الجودة – تسوق الآن بأسعار مميزة وتوصيل سريع لجميع الولايات."/>
 
+        <title>store.kamsed - المنتجات</title>
+      </Helmet>
 
       <div className='flex flex-1 xl:flex-col lg:flex-col md:flex-col  sm:flex-col xm:flex-col w-full p-8 ' dir='rtl'>
         <div className='flex xl:flex-row lg:flex-row sm:flex-col xm:flex-col  gap-4 justify-between'>
@@ -124,8 +131,8 @@ const Collection = () => {
           </div>
         </div>
         <div className='mt-7 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 xl:grid-cols-4 xm:grid-cols-1 gap-y-5 space-y-5  gap-10  '>
-          {allProducts.map((item) => {
-            return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} />
+          {allProducts.map((item, index) => {
+            return <ProductItems key={item._id} id={item._id} name={item.name} image={item.image[0]} price={item.price} index={index} />
           })}
         </div>
       </div>
